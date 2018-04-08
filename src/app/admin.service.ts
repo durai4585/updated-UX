@@ -23,6 +23,12 @@ constructor(private _http: HttpClient) { }
       .then(response => response)
       .catch(this.handleError)
   }
+  deletePost(posts: Posts): Promise<Posts>{
+    return this._http.put('http://localhost:3000/delete_posts', posts, {headers: this.headers})
+      .toPromise()
+      .then(response => response)
+      .catch(this.handleError)
+  }
   /**
      * Handles error thrown during HTTP call
      * @param error:any

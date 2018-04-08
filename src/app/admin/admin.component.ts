@@ -26,7 +26,14 @@ export class AdminComponent implements OnInit {
                 alert("Posted");
                 this.router.navigate(['/admin']);
             })
-  }
+           }
+           delete(post) {
+                   this.adminService.deletePost(post)
+                     .then(response => {
+                         alert("Deleted");
+                         this.router.navigate(['/admin']);
+                     })
+                    }
 
   getData() {
       this.adminService.getScreenShots(this.pageNumber).subscribe(results => {
