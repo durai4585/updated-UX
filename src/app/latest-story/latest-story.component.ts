@@ -45,32 +45,34 @@ export class LatestStoryComponent implements OnInit {
 
             //----------------------dribbble------------------------------//
 
-            results[0].forEach(element => {
-                list.push({
-                    "title": element.title,
-                    "image": element.images.normal,
-                    "url": element.html_url,
-                    "views_count": element.views_count,
-                    "source": "dribbble"
-                });
-            });
+            //results[0].forEach(element => {
+            //    list.push({
+            //        "title": element.title,
+            //        "image": element.images.normal,
+            //        "url": element.html_url,
+            //        "views_count": element.views_count,
+            //        "source": "dribbble"
+            //    });
+            //});
 
             //----------------------designernews------------------------------//
 
             parseString(results[0], function(err, result) {
-                //console.log(result.rss.channel[0].item);
-                result.forEach(element => {
-                    list.push({
-                        "title": element.title,
-                        "url": element.link,
-                    });
-                    //console.log(element.title[0]);
-                });
-            });
+                 //console.log(result.rss.channel[0].item);
+                 result.rss.channel[0].item.forEach(element => {
+                     list.push({
+                         "title": element.title,
+                         "url": element.link,
+                         "source": "designernews",
+                         "image": 'assets/images/dn.png',
+                     });
+                     //console.log(element.title[0]);
+                 });
+             });
 
             //----------------------producthunt------------------------------//
 
-            parseString(results[2], function(err, result) {
+            parseString(results[1], function(err, result) {
                  console.log(result);
                 result.feed.entry.forEach(element => {
                     list.push({
@@ -85,7 +87,7 @@ export class LatestStoryComponent implements OnInit {
 
             //----------------------behance------------------------------//
 
-            results[3].projects.forEach(element => {
+            results[2].projects.forEach(element => {
                 //console.log("element : " + element.name);
                 list.push({
                     "title": element.name,
@@ -94,7 +96,6 @@ export class LatestStoryComponent implements OnInit {
                     "source": "behance"
                 });
             });
-
 
             //----------------------medium------------------------------//
             //console.log(results[4]);

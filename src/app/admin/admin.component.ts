@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
+import {Posts} from '../posts';
 
 @Component({
   selector: 'app-admin',
@@ -19,6 +20,14 @@ export class AdminComponent implements OnInit {
       this.getData();
   }
 
+  approve(post) {
+          this.adminService.approvePost(post)
+            .then(response => {
+                alert("Posted");
+                this.router.navigate(['/admin']);
+            })
+  }
+
   getData() {
       this.adminService.getScreenShots(this.pageNumber).subscribe(results => {
 var todayDate = new Date();
@@ -28,6 +37,7 @@ var todayDate = new Date();
               if(todayDate.setHours(0,0,0,0) === postDate.setHours(0,0,0,0))
               {
                   this.todayposts.push({
+                  "_id": element._id,
                   "name": element.name,
                   "url": element.url,
                   "postedDate": element.postedDate
@@ -36,6 +46,7 @@ var todayDate = new Date();
               else
               {
                   this.yesterdayposts.push({
+                  "_id": element._id,
                   "name": element.name,
                   "url": element.url,
                   "postedDate": element.postedDate
