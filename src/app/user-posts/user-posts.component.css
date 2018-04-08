@@ -1,0 +1,282 @@
+
+
+.list {
+    margin: 0;
+    padding-left: 0px;
+}
+.items {
+    background: #FFF;
+
+    margin-bottom: 10px;
+    padding: 20px 105px 20px 20px;
+    position: relative;
+}
+.grid {
+    float: left;
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    display: table;
+}
+
+.UrlDetails {
+    display: table-cell;
+    padding-left: 30px;
+    width: auto;
+
+}
+.grid:after {
+    content: " ";
+    display: table;
+}
+
+.UrlDetails:after {
+    content: " ";
+    display: table;
+}
+
+#admin ul li {
+
+    border-radius: 4px;
+    transition: box-shadow .35s ease-out, transform .3s ease-out, opacity .2s ease-out;
+
+    transition-delay: .1s;
+    transform: translateZ(0);
+
+
+    display: table;
+    position: relative;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.05);
+    padding: 20px 0;
+
+}
+
+
+.image {
+    margin-right: 20px;
+    width: 65px;
+    display: table-cell;
+
+}
+.imageLink {
+    float: left;
+    width: 65px;
+    border-radius: 50%;
+    height: 65px;
+}
+
+ .logo {
+    overflow: hidden;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+
+    border-radius: 40px;
+    background-color: rgba(0,0,0,.03);
+}
+
+.logo p {
+    color: rgba(0,0,0,.25);
+    font-weight: 700;
+    font-size: 1.5em;
+    margin: 0;
+    text-align: center;
+    line-height: 3.2em;
+    vertical-align: middle;
+}
+
+#admin ul li div.company {
+    min-width: 10em;
+    padding: 0;
+    padding-top: .5em;
+    margin-right: 0.2em;
+    vertical-align: middle;
+    display: block;
+
+}
+
+#admin ul li div.tags {
+
+    display: block;
+    min-width: 10em;
+    padding: 0;
+    margin-top: 10px;
+    color: #000;
+    vertical-align: middle;
+}
+
+#admin ul li div.company a {
+
+    text-decoration: none;
+}
+.preventLink {
+}
+
+.row {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.row:after, .row:before {
+    content: " ";
+    display: table;
+}
+
+
+.label-featured {
+    background-color: rgba(0,0,0,.76);
+    color: #ffffff;
+    margin-top: 0;
+    margin-left: 10px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.companyLink {
+    margin: 0;
+    display: block;
+    margin-top: 5px;
+}
+.companyLink h4 {
+    margin-right: 5px;
+    font-weight: 800;
+    text-decoration: none;
+    color: rgba(0,0,0,.76);
+    display: inline-block;
+}
+
+
+.companyLink .pinIcon {
+    width: 0.82em;
+    opacity: .75;
+}
+.companyLink span {
+    color: rgba(0,0,0,.76);
+}
+
+#admin {
+
+}
+
+
+
+
+/* #jobsboard ul li:hover {
+
+ opacity: 1 !important;
+ background-color: rgba(90,122,190,0.15);
+
+} */
+
+
+#admin ul li div.image1 {
+    display: table-cell;
+    width: 5%;
+
+    padding-bottom: 0;
+    padding-top: 0;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+
+
+
+
+#admin ul li div.contract {
+    display: table-cell;
+    width: 15%;
+    height: 4em;
+    padding: 0;
+    padding-top: 0.2em;
+    margin-right: 0.2em;
+    vertical-align: middle;
+    color: #0392ce;
+
+    font-weight: 600;
+}
+
+
+#admin ul li div.company a {
+    font-size: 1.1em;
+    line-height: 1.5;
+    text-decoration: none;
+
+    color: #0366d6;
+    position: relative;
+    clear: both;
+    float: left;
+    text-transform: none;
+    font-weight: 600;
+}
+
+
+#admin ul li div.tags .tag  {
+    border: 2px solid rgba(0,0,0,.76);
+    border-radius: 5px;
+    display: table;
+    padding: 0.5em;
+
+    display: inline-block;
+    vertical-align: middle;
+
+}
+#admin ul li div.tags  a {
+    text-decoration: none;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+#admin ul li div.tags .tag h3 {
+    margin: 0;
+    line-height: 1;
+    font-size: 0.82em;
+    font-weight: 800;
+    text-decoration: none;
+    color: rgba(0,0,0,.76);
+}
+
+#admin ul li div.time {
+    display: table-cell;
+    width: 10%;
+    vertical-align: middle;
+}
+#admin ul li div.time a{
+    text-decoration: none;
+}
+#admin ul li div.sourceapply {
+    display: table-cell;
+    text-align: right;
+    vertical-align: top;
+}
+
+
+#admin ul li div.sourceapply a {
+    text-decoration: none;
+}
+
+.apply_button {
+
+    font-weight: 800;
+    display: inline-block;
+    width: 120px;
+    padding: 0.5em 0.3em;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #ff4046;
+    color: #ffffff;
+}
+.applyCount {
+    margin-top: 5px;
+    color: rgba(0,0,0,.76);
+}

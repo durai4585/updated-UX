@@ -1,0 +1,134 @@
+
+
+/* header menu */
+
+header {
+    height: 65px;
+    width: 100%;
+    background: inherit;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    /*border-bottom: 1px solid rgba(90,122,190,0.15);
+    transition: border .3s; */
+
+
+    background: #fff;
+    -webkit-box-shadow: 0 2px 2px -2px rgba(90,122,190,0.15);
+    box-shadow: 0 2px 2px -2px rgba(90,122,190,0.15);
+
+}
+
+.pull-left {
+    float: left;
+    width:25%;
+}
+.pull-left p {
+    padding-left: 5px;
+    top: -2px;
+    position: relative;
+    display: inline;
+}
+.stay-center {
+    float: left;
+    width: 50%;
+    text-align: center;
+    margin: 24px 0;
+    display: inline-block;
+}
+
+.pull-right {
+    float: right;
+    width: 25%;
+    text-align: right;
+}
+
+
+header .nav-icon.search.animate {
+    animation: revealSearch .35s forwards;
+    transform: translate3d(0, 0, 0);
+}
+header .nav-icon.search {
+    margin: 24px 0;
+    /*width: 0;
+    overflow: hidden;*/
+}
+header .nav-icon {
+    margin: 24px 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+header a.signin {
+    margin: 17px 0;
+    display: inline-block;
+    margin-left: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.76);
+    text-decoration: none;
+
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 15px;
+    /*width: 0;
+    overflow: hidden;*/
+}
+
+header a.signin:hover {
+    color: #ffffff;
+    background-color: rgba(0,0,0,.76);
+}
+
+
+header .nav-icon.search i {
+    margin: 0 10px;
+}
+header .nav-icon i {
+    cursor: pointer;
+    display: block;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 18px;
+    color:rgba(0,0,0,.76)!important;
+    transition: color 0.35s;
+}
+
+
+header .userIcon {
+    display: inline-block;
+    margin-left: 10px;
+
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background-color: rgba(0,0,0,.76);
+}
+
+header a.menu {
+    display: inline-block;
+    margin: 16px 0;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.76);
+    text-decoration: none;
+
+    padding: 5px 10px;
+}
+header a.menu:hover {
+
+    color: rgba(0,0,0,1);
+
+}

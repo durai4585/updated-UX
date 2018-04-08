@@ -1,0 +1,48 @@
+
+<!-- Page Header -->
+<div class="feedHeader">
+	<div class="dayWise">
+		<a href="" class="sectionHeader">
+			<h2 class="borderYellow">LATEST STORIES</h2> <span>Today's
+				Global Collection</span>
+		</a>
+	</div>
+</div>
+<!-- /.row -->
+<!-- Projects Row -->
+<!-- <section id="feed"> -->
+
+		<section id="feed" style="overflow: hidden; width:100%;">
+		<ul class="AllFeed" style="height: 1500px; width:101%; overflow: auto; padding-right: 22px;" infinite-scroll [infiniteScrollDistance]="2"
+		[infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScrollDown()">
+			<li class="gridItem" *ngFor="let post of posts">
+
+				<a href = {{post.url}}>
+
+				<div class="postPhoto imgLoaded">
+					<img class="img-responsive" src={{post.image}} alt=""
+						style="display: inline;">
+				</div>
+
+				<div class="postInfo">
+					<div class="heart"></div>
+					<h3>{{post.title}}</h3>
+
+					<div class="postMeta">
+						<span title="" class="source dribbble">{{post.source}}</span>
+						<div class="stats">
+							<span class="views" title="">{{post.views_count}}</span>
+						</div>
+					</div>
+				</div>
+		</a>
+
+
+			</li>
+			<div style="width:101%;text-align:center;float: left;">Loading More ...</div>
+		</ul>
+
+		  </section>
+
+<!-- </section> -->
+<!-- /.row -->

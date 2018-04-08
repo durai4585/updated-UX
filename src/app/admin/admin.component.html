@@ -1,0 +1,125 @@
+<main>
+               <div class="home-content">
+                   <div class="JoinToday">
+                           <h1 class="h1">Hey Admin, You have URLs to take action as Read and Post. </h1>
+                   </div>
+
+               <div class="feedHeader">
+                   <div class="dayWise">
+                       <a href="" class="sectionHeader">
+                       <h2 class="borderYellow">Today</h2>
+                       <span >{{todayposts[0].postedDate|date: 'dd MMMM yyyy'}}</span>
+                       </a>
+                   </div>
+               </div>
+
+               <div class="allfeed">
+
+                   <section id="admin">
+                       <ul class="list">
+                         <li class="item" *ngFor="let post of todayposts; let i = index">
+                           <div class="grid">
+
+                             <div class="image">
+                                 <a href="" class="imageLink">
+                                   <div class="logo"><p>{{i+1}}</p></div>
+                                 </a>
+                             </div>
+
+                             <div class="UrlDetails">
+                               <div class="row">
+                                 <div class="company">
+                                   <a href="" class="preventLink">
+                                    {{post.url}}
+                                   </a>
+                                   <a href="" class="companyLink">
+                                     <span>Posted by</span>
+                                     <h4>{{post.name}} </h4>
+                                   </a>
+
+                                 </div>
+
+                               </div>
+                             </div>
+
+                             <div  class="sourceapply">
+                               <a href=""><div class="apply_button"><p>Unread</p></div></a>
+                               <form action="" class="applyCount stats">
+                                         <select name="cars">
+                                           <option value="volvo">Please rate me</option>
+                                             <option value="volvo">Very good</option>
+                                           <option value="saab">Good</option>
+                                           <option value="fiat">Ok</option>
+                                           <option value="audi">Poor</option>
+                                         </select>
+                                       </form>
+                             </div>
+
+                           </div>
+                         </li>
+
+
+
+
+                       </ul>
+                     </section>
+
+               <div class="feedHeader">
+                   <div class="dayWise">
+                       <a href="" class="sectionHeader">
+                       <h2 class="borderYellow">Yesterday</h2>
+                      <span >{{yesterdayposts[0].postedDate|date: 'dd MMMM yyyy'}}</span>
+                       </a>
+                   </div>
+               </div>
+
+               <section id="admin">
+                       <ul class="list">
+                         <li class="item" *ngFor="let post of yesterdayposts; let i = index">
+                           <div class="grid">
+
+                             <div class="image">
+                                 <a href="" class="imageLink">
+                                   <div class="logo"><p>{{i+1}}</p></div>
+                                 </a>
+                             </div>
+
+                             <div class="UrlDetails">
+                               <div class="row">
+                                 <div class="company">
+                                   <a href="" class="preventLink">
+                                    {{post.url}}
+                                   </a>
+                                   <a href="" class="companyLink">
+                                     <span>Posted by</span>
+                                     <h4>{{post.name}} </h4>
+                                   </a>
+
+                                 </div>
+
+                               </div>
+                             </div>
+
+                             <div  class="sourceapply">
+                               <a href=""><div class="apply_button"><p>Read</p></div></a>
+                               <form action="" class="applyCount stats">
+                                         <select name="cars">
+                                           <option value="volvo">Please rate me</option>
+                                             <option value="volvo">Very good</option>
+                                           <option value="saab">Good</option>
+                                           <option value="fiat">Ok</option>
+                                           <option value="audi">Poor</option>
+                                         </select>
+                                       </form>
+                             </div>
+
+                           </div>
+                         </li>
+                       </ul>
+                     </section>
+
+
+               </div>
+
+               </div>
+           </main>
