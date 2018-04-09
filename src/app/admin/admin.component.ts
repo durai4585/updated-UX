@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import {Posts} from '../posts';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -13,8 +14,11 @@ export class AdminComponent implements OnInit {
   yesterdayposts = [];
   olderdayposts = [];
   pageNumber = 1;
+   todayDate = new Date();
+   yesterdayDate = new Date();
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService,
+    private router: Router) { }
 
   ngOnInit() {
       this.getData();
@@ -27,6 +31,7 @@ export class AdminComponent implements OnInit {
                 this.router.navigate(['/admin']);
             })
            }
+
            delete(post) {
                    this.adminService.deletePost(post)
                      .then(response => {
@@ -37,26 +42,53 @@ export class AdminComponent implements OnInit {
 
   getData() {
       this.adminService.getScreenShots(this.pageNumber).subscribe(results => {
-var todayDate = new Date();
+
           results[0].forEach(element => {
              let postDate = new Date(element.postedDate);
               console.log(postDate);
-              if(todayDate.setHours(0,0,0,0) === postDate.setHours(0,0,0,0))
+              //this.todayposts.date=todayDate.setHours(0,0,0,0);
+
+            this.yesterdayDate =  new Date(this.yesterdayDate.setDate(this.todayDate.getDate() - 1));
+              if(this.todayDate.setHours(0,0,0,0) === postDate.setHours(0,0,0,0))
               {
                   this.todayposts.push({
                   "_id": element._id,
                   "name": element.name,
+                  "email": element.email,
                   "url": element.url,
+                  "title": element.title,
+                  "image": element.image,
+                  "website": element.website,
+                  "status": element.status,
                   "postedDate": element.postedDate
+                  });
+              }
+              else if(this.yesterdayDate.setHours(0,0,0,0) === postDate.setHours(0,0,0,0))
+              {
+                  this.yesterdayposts.push({
+                    "_id": element._id,
+                    "name": element.name,
+                    "email": element.email,
+                    "url": element.url,
+                    "title": element.title,
+                    "image": element.image,
+                    "website": element.website,
+                    "status": element.status,
+                    "postedDate": element.postedDate
                   });
               }
               else
               {
-                  this.yesterdayposts.push({
-                  "_id": element._id,
-                  "name": element.name,
-                  "url": element.url,
-                  "postedDate": element.postedDate
+                  this.olderdayposts.push({
+                    "_id": element._id,
+                    "name": element.name,
+                    "email": element.email,
+                    "url": element.url,
+                    "title": element.title,
+                    "image": element.image,
+                    "website": element.website,
+                    "status": 'posted',
+                    "postedDate": element.postedDate
                   });
               }
           });

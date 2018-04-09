@@ -3,6 +3,9 @@ export class Posts {
   name: string;
   email: string;
   url: string;
+  title: string;
+  image: string;
+  website: string;
   postedDate: Date;
   status: string;
   createdAt: string;

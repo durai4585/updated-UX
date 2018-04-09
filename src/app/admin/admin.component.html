@@ -3,17 +3,17 @@
                    <div class="JoinToday">
                            <h1 class="h1">Hey Admin, You have URLs to take action as Read and Post. </h1>
                    </div>
-
+<div class="allfeed">
                <div class="feedHeader">
                    <div class="dayWise">
                        <a href="" class="sectionHeader">
                        <h2 class="borderYellow">Today</h2>
-                       <span >{{todayposts[0].postedDate|date: 'dd MMMM yyyy'}}</span>
+                       <span >{{todayDate|date: 'dd MMMM yyyy'}}</span>
                        </a>
                    </div>
                </div>
 
-               <div class="allfeed">
+
 
                    <section id="admin">
                        <ul class="list">
@@ -22,39 +22,39 @@
 
                              <div class="image">
                                  <a href="" class="imageLink">
-                                   <div class="logo"><p>{{i+1}}</p></div>
+                                   <div class="postImg"><p><img src={{post.image}}></p></div>
                                  </a>
                              </div>
-
                              <div class="UrlDetails">
-                               <div class="row">
-                                 <div class="company">
-                                   <a href="" class="preventLink">
-                                    {{post.url}}
-                                   </a>
-                                   <a href="" class="companyLink">
-                                     <span>Posted by</span>
-                                     <h4>{{post.name}} </h4>
-                                   </a>
+                                                             <div class="row">
+                                                               <div class="company">
+                                                                 <a href="" class="preventLink">
+                                                                  {{post.url}}
+                                                                 </a>
+                                                                 <h3 class="label-featured">New</h3>
+                                                                 <a href="" class="companyLink">
+                                                                   <span>Submitted by</span>
+                                                                   <h4>{{post.name}}  </h4>
+                                                                   <h6>{{post.email}} </h6>
+                                                                 </a>
+                                                                 <div *ngIf="post.status=='posted'">
+                                                                 <a href="" class="companyLink">
+                                                                  <span>Website: </span>
+                                                                  <h4> {{post.website}}</h4>
+                                                                  <span>Title: </span>
+                                                                  <h4>{{post.title}} - min 100 chars</h4>
+                                                                  <span>View: </span>
+                                                                  <h4>46</h4>
+                                                                </a>
+                                                                 </div>
+                                                               </div>
 
-                                 </div>
+                                                             </div>
+                                                           </div>
 
-                               </div>
-                             </div>
-
-                             <div  class="sourceapply">
-                               <a href=""><div class="apply_button" (click)="approve(post)"><p>Unread</p></div></a>
-                                 <a href=""><div class="apply_button" (click)="delete(post)"><p>Delete</p></div></a>
-                               <form action="" class="applyCount stats">
-                                         <select name="cars">
-                                           <option value="volvo">Please rate me</option>
-                                             <option value="volvo">Very good</option>
-                                           <option value="saab">Good</option>
-                                           <option value="fiat">Ok</option>
-                                           <option value="audi">Poor</option>
-                                         </select>
-                                       </form>
-                             </div>
+                                                           <div  class="sourceapply">
+                                                             <a href="#post"><div class="apply_button"><p>POST</p></div></a>
+                                                           </div>
 
                            </div>
                          </li>
@@ -69,59 +69,147 @@
                    <div class="dayWise">
                        <a href="" class="sectionHeader">
                        <h2 class="borderYellow">Yesterday</h2>
-                      <span >{{yesterdayposts[0].postedDate|date: 'dd MMMM yyyy'}}</span>
+                      <span >{{yesterdayDate|date: 'dd MMMM yyyy'}}</span>
                        </a>
                    </div>
                </div>
 
                <section id="admin">
-                       <ul class="list">
-                         <li class="item" *ngFor="let post of yesterdayposts; let i = index">
-                           <div class="grid">
+                   <ul class="list">
+                     <li class="item" *ngFor="let post of yesterdayposts; let i = index">
+                       <div class="grid">
 
-                             <div class="image">
-                                 <a href="" class="imageLink">
-                                   <div class="logo"><p>{{i+1}}</p></div>
-                                 </a>
-                             </div>
+                         <div class="image">
+                             <a href="" class="imageLink">
+                               <div class="postImg"><p><img src={{post.image}}></p></div>
+                             </a>
+                         </div>
+                         <div class="UrlDetails">
+                                                         <div class="row">
+                                                           <div class="company">
+                                                             <a href="" class="preventLink">
+                                                              {{post.url}}
+                                                             </a>
+                                                             <h3 class="label-featured">New</h3>
+                                                             <a href="" class="companyLink">
+                                                               <span>Submitted by</span>
+                                                               <h4>{{post.name}}  </h4>
+                                                               <h6>{{post.email}} </h6>
+                                                             </a>
+                                                             <div *ngIf="post.status=='posted'">
+                                                             <a href="" class="companyLink">
+                                                              <span>Website: </span>
+                                                              <h4> {{post.website}}</h4>
+                                                              <span>Title: </span>
+                                                              <h4>{{post.title}} - min 100 chars</h4>
+                                                              <span>View: </span>
+                                                              <h4>46</h4>
+                                                            </a>
+                                                             </div>
+                                                           </div>
 
-                             <div class="UrlDetails">
-                               <div class="row">
-                                 <div class="company">
-                                   <a href="" class="preventLink">
-                                    {{post.url}}
-                                   </a>
-                                   <a href="" class="companyLink">
-                                     <span>Posted by</span>
-                                     <h4>{{post.name}} </h4>
-                                   </a>
+                                                         </div>
+                                                       </div>
+
+                                                       <div  class="sourceapply">
+                                                         <a href="#post"><div class="apply_button"><p>POST</p></div></a>
+                                                       </div>
+
+                       </div>
+                     </li>
+                   </ul>
+                 </section>
+
+                     <div class="feedHeader">
+                         <div class="dayWise">
+                             <a href="" class="sectionHeader">
+                             <h2 class="borderYellow">Older</h2>
+                             <span ></span>
+                             </a>
+                         </div>
+                     </div>
+
+
+
+                         <section id="admin">
+                             <ul class="list">
+                               <li class="item" *ngFor="let post of olderdayposts; let i = index">
+                                 <div class="grid">
+
+                                   <div class="image">
+                                       <a href="" class="imageLink">
+                                         <div class="postImg"><p><img src={{post.image}}></p></div>
+                                       </a>
+                                   </div>
+                                   <div class="UrlDetails">
+                                                                   <div class="row">
+                                                                     <div class="company">
+                                                                       <a href="" class="preventLink">
+                                                                        {{post.url}}
+                                                                       </a>
+                                                                       <h3 class="label-featured">New</h3>
+                                                                       <a href="" class="companyLink">
+                                                                         <span>Submitted by</span>
+                                                                         <h4>{{post.name}}  </h4>
+                                                                         <h6>{{post.email}} </h6>
+                                                                       </a>
+                                                                       <div *ngIf="post.status=='posted'">
+                                                                         <a href="" class="companyLink" >
+                                                                          <span>Website: </span>
+                                                                          <h4> {{post.website}}</h4>
+                                                                          <span>Title: </span>
+                                                                          <h4>{{post.title}} - min 100 chars</h4>
+                                                                          <span>View: </span>
+                                                                          <h4>46</h4>
+                                                                        </a>
+                                                                      </div>
+
+                                                                     </div>
+
+                                                                   </div>
+                                                                 </div>
+
+                                                                 <div  class="sourceapply">
+                                                                   <a href="#post"><div class="apply_button"><p>POST</p></div></a>
+                                                                 </div>
 
                                  </div>
-
-                               </div>
-                             </div>
-
-                             <div  class="sourceapply">
-                               <a href=""><div class="apply_button" (click)="approve(post)"><p>Read</p></div></a>
-                                  <a href=""><div class="apply_button" (click)="delete(post)"><p>Delete</p></div></a>
-                               <form action="" class="applyCount stats">
-                                         <select name="cars">
-                                           <option value="volvo">Please rate me</option>
-                                             <option value="volvo">Very good</option>
-                                           <option value="saab">Good</option>
-                                           <option value="fiat">Ok</option>
-                                           <option value="audi">Poor</option>
-                                         </select>
-                                       </form>
-                             </div>
-
-                           </div>
-                         </li>
-                       </ul>
-                     </section>
+                               </li>
 
 
+
+
+                             </ul>
+                           </section>
                </div>
 
                </div>
            </main>
+           <div id="post" class="overlay">
+           <div class="admin-popup">
+               <h2>Post Details</h2>
+               <a class="close" href="#">&times;</a>
+               <div class="content">
+
+                       <div class="company">
+                           <a href="" class="preventLink">
+                               https://dribbble.com/shots/4422726-Hello-Dribbble
+                           </a>
+                           <div class="admin-submitter">
+                               Submitted by <strong>Kalaivani </strong>
+                           </div>
+                       </div>
+
+
+                       <form action="#" method="post" accept-charset="utf-8" id="submit-blog" class="submitForm">
+                           <div class="admin-postImg">Image: <input type="file" name="pic" accept="image/*"></div>
+                             <input type="text" name="title" style="width: 640px;" placeholder="Post title" value="" id="submit-field">
+
+                             <input type="text" name="url" style="width: 640px;" placeholder="Website name" value="" id="submit-field"> <br />
+
+                             <input type="submit" value="POST">
+                       </form>
+
+               </div>
+           </div>
+       </div>

@@ -73,7 +73,7 @@ export class LatestStoryComponent implements OnInit {
             //----------------------producthunt------------------------------//
 
             parseString(results[1], function(err, result) {
-                 console.log(result);
+                 //console.log(result);
                 result.feed.entry.forEach(element => {
                     list.push({
                         "title": element.title,
