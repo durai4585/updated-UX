@@ -7,7 +7,7 @@
 								 <a  class="menu" routerLink="/home">Explore</a>
 								 <a  class="menu" href="jobs.html">Jobs</a>
 								 <a  class="menu" href="#">About</a>
-								  <a  class="menu" routerLink="/admin">Admin</a>
+								  <a  class="menu" routerLink="/admin" *ngIf='!showNav' >Admin</a>
 							 </div>
 							 <div class="stay-center">
 								 1°C  <img src="" /> London - 8:33 PM Sunday, 25 February
@@ -21,7 +21,7 @@
 								 <a class="signin" routerLink="/userposts">
 										<span>+</span> Submit
 								 </a>
-								 <a class="userIcon ng-hide button" href="#popup1">⌘</a>
+								 <a class="userIcon ng-hide button" routerLink="/login">⌘</a>
 							 </div>
 						 </div>
 	</header>

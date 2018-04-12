@@ -36,6 +36,7 @@ import {Location} from "@angular/common";
       let user = this.userAddForm.value as Posts;
       user.postedDate=new Date();
         user.isActive='Y';
+        user.status='New';
         console.log(user);
 
       this.userPostsService.add(user)

@@ -4,6 +4,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppComponent } from './app.component';
 import { HandPickedComponent } from './hand-picked/hand-picked.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,11 +16,13 @@ import { LatestStoryService } from './latest-story.service';
 import { HandPickedService } from './hand-picked.service';
 import { UserPostsService } from './user-posts.service';
 import { AdminService } from './admin.service';
+import { UserService } from './user.service';
 
 import { HomeComponent } from './home/home.component';
 import { UserPostsComponent } from './user-posts/user-posts.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AdminComponent } from './admin/admin.component';
+import { UpdatePostsComponent } from './update-posts/update-posts.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +33,13 @@ import { AdminComponent } from './admin/admin.component';
     LoginComponent,
     HomeComponent,
     UserPostsComponent,
-    AdminComponent
+    AdminComponent,
+    UpdatePostsComponent
   ],
   imports: [
-    BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, AppRoutingModule
+    BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
   ],
-  providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService ],
+  providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

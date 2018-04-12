@@ -2,6 +2,8 @@
                <div class="home-content">
                    <div class="JoinToday">
                            <h1 class="h1">Hey Admin, You have URLs to take action as Read and Post. </h1>
+
+
                    </div>
 <div class="allfeed">
                <div class="feedHeader">
@@ -31,29 +33,30 @@
                                                                  <a href="" class="preventLink">
                                                                   {{post.url}}
                                                                  </a>
-                                                                 <h3 class="label-featured">New</h3>
+                                                                 <h3 class="label-featured">{{post.status}}</h3>
                                                                  <a href="" class="companyLink">
                                                                    <span>Submitted by</span>
                                                                    <h4>{{post.name}}  </h4>
                                                                    <h6>{{post.email}} </h6>
                                                                  </a>
-                                                                 <div *ngIf="post.status=='posted'">
-                                                                 <a href="" class="companyLink">
-                                                                  <span>Website: </span>
-                                                                  <h4> {{post.website}}</h4>
-                                                                  <span>Title: </span>
-                                                                  <h4>{{post.title}} - min 100 chars</h4>
-                                                                  <span>View: </span>
-                                                                  <h4>46</h4>
-                                                                </a>
-                                                                 </div>
+                                                                 <div *ngIf="post.status=='Posted'">
+                                                                   <a href="" class="companyLink" >
+                                                                    <span>Website: </span>
+                                                                    <h4> {{post.website}}</h4>
+                                                                    <span>Title: </span>
+                                                                    <h4>{{post.title}} - min 100 chars</h4>
+                                                                    <span>View: </span>
+                                                                    <h4>46</h4>
+                                                                  </a>
+                                                                </div>
+
                                                                </div>
 
                                                              </div>
                                                            </div>
 
                                                            <div  class="sourceapply">
-                                                             <a href="#post"><div class="apply_button"><p>POST</p></div></a>
+                                                             <button (click)="listClick($event, post)" class="apply_button"><p>POST</p></button>
                                                            </div>
 
                            </div>
@@ -90,29 +93,30 @@
                                                              <a href="" class="preventLink">
                                                               {{post.url}}
                                                              </a>
-                                                             <h3 class="label-featured">New</h3>
+                                                             <h3 class="label-featured">{{post.status}}</h3>
                                                              <a href="" class="companyLink">
                                                                <span>Submitted by</span>
                                                                <h4>{{post.name}}  </h4>
                                                                <h6>{{post.email}} </h6>
                                                              </a>
-                                                             <div *ngIf="post.status=='posted'">
-                                                             <a href="" class="companyLink">
-                                                              <span>Website: </span>
-                                                              <h4> {{post.website}}</h4>
-                                                              <span>Title: </span>
-                                                              <h4>{{post.title}} - min 100 chars</h4>
-                                                              <span>View: </span>
-                                                              <h4>46</h4>
-                                                            </a>
-                                                             </div>
+                                                             <div *ngIf="post.status=='Posted'">
+                                                               <a href="" class="companyLink" >
+                                                                <span>Website: </span>
+                                                                <h4> {{post.website}}</h4>
+                                                                <span>Title: </span>
+                                                                <h4>{{post.title}} - min 100 chars</h4>
+                                                                <span>View: </span>
+                                                                <h4>46</h4>
+                                                              </a>
+                                                            </div>
+
                                                            </div>
 
                                                          </div>
                                                        </div>
 
                                                        <div  class="sourceapply">
-                                                         <a href="#post"><div class="apply_button"><p>POST</p></div></a>
+                                                         <button (click)="listClick($event, post)" class="apply_button"><p>POST</p></button>
                                                        </div>
 
                        </div>
@@ -147,13 +151,13 @@
                                                                        <a href="" class="preventLink">
                                                                         {{post.url}}
                                                                        </a>
-                                                                       <h3 class="label-featured">New</h3>
+                                                                       <h3 class="label-featured">{{post.status}}</h3>
                                                                        <a href="" class="companyLink">
                                                                          <span>Submitted by</span>
                                                                          <h4>{{post.name}}  </h4>
                                                                          <h6>{{post.email}} </h6>
                                                                        </a>
-                                                                       <div *ngIf="post.status=='posted'">
+                                                                       <div *ngIf="post.status=='Posted'">
                                                                          <a href="" class="companyLink" >
                                                                           <span>Website: </span>
                                                                           <h4> {{post.website}}</h4>
@@ -170,7 +174,7 @@
                                                                  </div>
 
                                                                  <div  class="sourceapply">
-                                                                   <a href="#post"><div class="apply_button"><p>POST</p></div></a>
+                                                                   <button (click)="listClick($event, post)" class="apply_button"><p>POST</p></button>
                                                                  </div>
 
                                  </div>
@@ -185,31 +189,31 @@
 
                </div>
            </main>
-           <div id="post" class="overlay">
-           <div class="admin-popup">
-               <h2>Post Details</h2>
-               <a class="close" href="#">&times;</a>
-               <div class="content">
+           <app-update-posts id="post" [(visible)]="showDialog" >
 
+               <h2>Post Details</h2>
+               <div class="content">
+  <form [formGroup]="userAddForm"	(ngSubmit)="updatePost()" accept-charset="utf-8" id="submit-blog" class="submitForm"	novalidate>
                        <div class="company">
                            <a href="" class="preventLink">
-                               https://dribbble.com/shots/4422726-Hello-Dribbble
+                               {{upost.url}}
                            </a>
                            <div class="admin-submitter">
-                               Submitted by <strong>Kalaivani </strong>
+                               Submitted by <strong>{{upost.name}} </strong>
                            </div>
                        </div>
+                            <input type="hidden" name="_id" value="{{upost._id}}">
+                              <input type="hidden" name="fileHidden" formControlName="image"/> <!-- Validation Field -->
+                           <div class="admin-postImg">Image: <input type="file" name="pic" accept="image/*" (change)="onFileChange($event)"></div>
+                             <input formControlName="title" type="text" name="title" style="width: 640px;" placeholder="Post title" value="{{upost.title}}" id="submit-field">
+
+                             <input formControlName="website" type="text" name="website" style="width: 640px;" placeholder="Website name" value="{{upost.website}}" id="submit-field"> <br />
 
 
-                       <form action="#" method="post" accept-charset="utf-8" id="submit-blog" class="submitForm">
-                           <div class="admin-postImg">Image: <input type="file" name="pic" accept="image/*"></div>
-                             <input type="text" name="title" style="width: 640px;" placeholder="Post title" value="" id="submit-field">
-
-                             <input type="text" name="url" style="width: 640px;" placeholder="Website name" value="" id="submit-field"> <br />
-
-                             <input type="submit" value="POST">
+                              <button type="submit" class="btn btn-success"	[disabled]="!userAddForm.valid"	>POST</button>
                        </form>
 
-               </div>
-           </div>
-       </div>
+</div>
+
+
+       </app-update-posts>

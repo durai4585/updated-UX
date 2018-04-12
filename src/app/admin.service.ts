@@ -18,6 +18,7 @@ constructor(private _http: HttpClient) { }
   }
 
   approvePost(posts: Posts): Promise<Posts>{
+    console.log(posts);
     return this._http.put('http://localhost:3000/approve_posts', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)

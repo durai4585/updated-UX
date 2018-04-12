@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import {Posts} from '../posts';
 import {Router} from '@angular/router';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-admin',
@@ -16,12 +17,50 @@ export class AdminComponent implements OnInit {
   pageNumber = 1;
    todayDate = new Date();
    yesterdayDate = new Date();
+    showDialog = false;
+    userAddForm: FormGroup;
+    upost = new Posts();
 
   constructor(private adminService: AdminService,
-    private router: Router) { }
+    private router: Router, private formBuilder: FormBuilder) {this.buildForm(); }
 
   ngOnInit() {
       this.getData();
+  }
+  buildForm(): void {
+    this.userAddForm = this.formBuilder.group({
+      image: [''],
+      title: ['', Validators.required],
+      website: ['', Validators.required]
+    });
+  }
+  listClick(event, newValue) {
+    console.log(newValue);
+    this.showDialog = true;
+    this.upost = newValue;  // don't forget to update the model here
+    // ... do other stuff here ...
+}
+onFileChange($event) {
+     let file = $event.target.files[0]; // <--- File Object for future use.
+     this.userAddForm.controls['image'].setValue(file ? file.name : ''); // <-- Set Value for Validation
+}
+
+  updatePost(): void {
+    let userAddFormvalue = this.userAddForm.value as Posts;
+    this.upost.title=userAddFormvalue.title;
+      this.upost.website=userAddFormvalue.website;
+        this.upost.image=userAddFormvalue.image;
+    this.upost.postedDate=new Date();
+        this.upost.status='Posted';
+      this.upost.isActive='Y';
+      //console.log(upost);
+
+  this.adminService.approvePost(this.upost)
+      .then(response => {
+        //console.log(response);
+        //this.router.navigate(['/home']);
+        this.showDialog = false;
+      })
   }
 
   approve(post) {
@@ -87,7 +126,7 @@ export class AdminComponent implements OnInit {
                     "title": element.title,
                     "image": element.image,
                     "website": element.website,
-                    "status": 'posted',
+                    "status": element.status,
                     "postedDate": element.postedDate
                   });
               }
