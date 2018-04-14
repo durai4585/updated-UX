@@ -23,7 +23,7 @@ export class LatestStoryService {
                     .append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
                     .append('Access-Control-Allow-Origin', '*')
                     .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method")
-                ,   responseType: 'text' as 'json'
+                , responseType: 'text'
             }),
 
             //-------------------producthunt------------------//
@@ -33,8 +33,9 @@ export class LatestStoryService {
                     .append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
                     .append('Access-Control-Allow-Origin', '*')
                     .append('Access-Control-Allow-Headers', "Access-Control-Allow-Headers, Access-Control-Allow-Origin, Access-Control-Request-Method")
-                , responseType: 'text' as 'json'
+                , responseType: 'text'
             }),
+
 
             //-------------------behance------------------//
             this._http.get<any[]>('https://www.behance.net/v2/projects?sort=published_date&field=132&content=project&api_key=OGWw0DdyHFb4h9zjKIXAFNKvPG1iJRJ6'),
