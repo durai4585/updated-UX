@@ -1,30 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {UserService} from '../user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from "../authentication.service";
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
-  selector: 'app-login',
+  moduleId: module.id,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+    model: any = {};
+    loading = false;
+    returnUrl: string;
 
-  constructor(private router:Router, private user:UserService) { }
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService) { }
 
-  ngOnInit() {
-    console.log('hit');
-  }
+    ngOnInit() {
+        // reset login status
+        this.authenticationService.logout();
 
-  loginUser(e) {
-    e.preventDefault();
-    console.log(e);
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
-
-    if(username == 'admin' && password == 'admin') {
-      this.user.setUserLoggedIn();
-      this.router.navigate(['admin']);
+        // get return url from route parameters or default to '/'
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
-  }
 
+    login() {
+        this.loading = true;
+        this.authenticationService.login(this.model.username, this.model.password)
+            .subscribe(
+                data => {
+                  console.log(this.returnUrl);
+                  HeaderComponent.updateUserStatus.next(true); // here!
+                    this.router.navigate([this.returnUrl]);
+                },
+                error => {
+                    //this.alertService.error(error);
+                    this.loading = false;
+                });
+    }
 }

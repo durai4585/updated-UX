@@ -22,7 +22,14 @@ export class AdminComponent implements OnInit {
     upost = new Posts();
 
   constructor(private adminService: AdminService,
-    private router: Router, private formBuilder: FormBuilder) {this.buildForm(); }
+    private router: Router, private formBuilder: FormBuilder) {
+
+      let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if(!currentUser){
+      this.router.navigate(['/login']);
+    }
+        this.buildForm();
+    }
 
   ngOnInit() {
       this.getData();
@@ -63,13 +70,7 @@ onFileChange($event) {
       })
   }
 
-  approve(post) {
-          this.adminService.approvePost(post)
-            .then(response => {
-                alert("Posted");
-                this.router.navigate(['/admin']);
-            })
-           }
+
 
            delete(post) {
                    this.adminService.deletePost(post)

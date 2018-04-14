@@ -17,6 +17,7 @@ import { HandPickedService } from './hand-picked.service';
 import { UserPostsService } from './user-posts.service';
 import { AdminService } from './admin.service';
 import { UserService } from './user.service';
+import { AuthenticationService } from './authentication.service';
 
 import { HomeComponent } from './home/home.component';
 import { UserPostsComponent } from './user-posts/user-posts.component';
@@ -39,7 +40,7 @@ import { UpdatePostsComponent } from './update-posts/update-posts.component';
   imports: [
     BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
   ],
-  providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService ],
+  providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService,AuthenticationService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
