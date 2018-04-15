@@ -37,19 +37,32 @@ export class AdminComponent implements OnInit {
   buildForm(): void {
     this.userAddForm = this.formBuilder.group({
       image: [''],
-      title: ['', Validators.required],
-      website: ['', Validators.required]
+      title: [''],
+      website: ['']
     });
   }
   listClick(event, newValue) {
-    console.log(newValue);
+    //console.log(newValue);
     this.showDialog = true;
-    this.upost = newValue;  // don't forget to update the model here
+    this.upost = newValue;
+      this.userAddForm.controls['title'].setValue(newValue.title);
+      this.userAddForm.controls['website'].setValue(newValue.website);
+      this.userAddForm.controls['image'].setValue(newValue.image);
     // ... do other stuff here ...
 }
-onFileChange($event) {
-     let file = $event.target.files[0]; // <--- File Object for future use.
-     this.userAddForm.controls['image'].setValue(file ? file.name : ''); // <-- Set Value for Validation
+onFileChange(event) {
+     let reader = new FileReader();
+         if(event.target.files.length > 0) {
+           let file = event.target.files[0];
+           reader.readAsDataURL(file);
+           reader.onload = () => {
+            this.userAddForm.controls['image'].setValue({
+               filename: file.name,
+               filetype: file.type,
+               value: reader.result.split(',')[1]
+             })
+           };
+         }
 }
 
   updatePost(): void {
@@ -58,9 +71,9 @@ onFileChange($event) {
       this.upost.website=userAddFormvalue.website;
         this.upost.image=userAddFormvalue.image;
     this.upost.postedDate=new Date();
-        this.upost.status='Posted';
+        this.upost.status='posted';
       this.upost.isActive='Y';
-      //console.log(upost);
+      //console.log(this.upost);
 
   this.adminService.approvePost(this.upost)
       .then(response => {
@@ -70,9 +83,8 @@ onFileChange($event) {
       })
   }
 
-
-
-           delete(post) {
+           removePost(post) {
+             post.status="removed"
                    this.adminService.deletePost(post)
                      .then(response => {
                          alert("Deleted");
@@ -85,7 +97,7 @@ onFileChange($event) {
 
           results[0].forEach(element => {
              let postDate = new Date(element.postedDate);
-              console.log(postDate);
+              console.log(element);
               //this.todayposts.date=todayDate.setHours(0,0,0,0);
 
             this.yesterdayDate =  new Date(this.yesterdayDate.setDate(this.todayDate.getDate() - 1));

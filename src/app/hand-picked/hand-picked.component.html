@@ -43,7 +43,7 @@
             <li class="gridItem" *ngFor="let post of posts">
 							<a href = {{post.url}}>
 							<div class="postPhoto imgLoaded">
-								<img class="img-responsive" src={{post.image}} alt=""	style="display: inline;">
+								<img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}" style="display: inline;">
 							</div>
 
 							<div class="postInfo">

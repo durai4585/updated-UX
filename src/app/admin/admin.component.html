@@ -24,7 +24,7 @@
 
                              <div class="image">
                                  <a href="" class="imageLink">
-                                   <div class="postImg"><p><img src={{post.image}}></p></div>
+                                   <div class="postImg"><p><img *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}"></p></div>
                                  </a>
                              </div>
                              <div class="UrlDetails">
@@ -39,7 +39,7 @@
                                                                    <h4>{{post.name}}  </h4>
                                                                    <h6>{{post.email}} </h6>
                                                                  </a>
-                                                                 <div *ngIf="post.status=='Posted'">
+                                                                 <div *ngIf="post.status=='posted'">
                                                                    <a href="" class="companyLink" >
                                                                     <span>Website: </span>
                                                                     <h4> {{post.website}}</h4>
@@ -54,9 +54,12 @@
 
                                                              </div>
                                                            </div>
-
                                                            <div  class="sourceapply">
-                                                             <button (click)="listClick($event, post)" class="apply_button"><p>POST</p></button>
+                                                             <button (click)="listClick($event, post)" class="apply_button">
+                                                               <p *ngIf="post.status === 'new'">POST</p>
+                                                               <p *ngIf="post.status === 'posted'">Update</p>
+                                                               <p *ngIf="post.status === 'removed'">Re-Submit</p>
+                                                             </button>
                                                            </div>
 
                            </div>
@@ -84,7 +87,7 @@
 
                          <div class="image">
                              <a href="" class="imageLink">
-                               <div class="postImg"><p><img src={{post.image}}></p></div>
+                               <div class="postImg"><p><img *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}"></p></div>
                              </a>
                          </div>
                          <div class="UrlDetails">
@@ -99,7 +102,7 @@
                                                                <h4>{{post.name}}  </h4>
                                                                <h6>{{post.email}} </h6>
                                                              </a>
-                                                             <div *ngIf="post.status=='Posted'">
+                                                             <div *ngIf="post.status=='posted'">
                                                                <a href="" class="companyLink" >
                                                                 <span>Website: </span>
                                                                 <h4> {{post.website}}</h4>
@@ -116,7 +119,11 @@
                                                        </div>
 
                                                        <div  class="sourceapply">
-                                                         <button (click)="listClick($event, post)" class="apply_button"><p>POST</p></button>
+                                                         <button (click)="listClick($event, post)" class="apply_button">
+                                                           <p *ngIf="post.status === 'new'">POST</p>
+                                                           <p *ngIf="post.status === 'posted'">Update</p>
+                                                           <p *ngIf="post.status === 'removed'">Re-Submit</p>
+                                                         </button>
                                                        </div>
 
                        </div>
@@ -134,7 +141,6 @@
                      </div>
 
 
-
                          <section id="admin">
                              <ul class="list">
                                <li class="item" *ngFor="let post of olderdayposts; let i = index">
@@ -142,7 +148,8 @@
 
                                    <div class="image">
                                        <a href="" class="imageLink">
-                                         <div class="postImg"><p><img src={{post.image}}></p></div>
+                                         <div class="postImg"><p><img *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}"></p></div>
+
                                        </a>
                                    </div>
                                    <div class="UrlDetails">
@@ -157,7 +164,7 @@
                                                                          <h4>{{post.name}}  </h4>
                                                                          <h6>{{post.email}} </h6>
                                                                        </a>
-                                                                       <div *ngIf="post.status=='Posted'">
+                                                                       <div *ngIf="post.status=='posted'">
                                                                          <a href="" class="companyLink" >
                                                                           <span>Website: </span>
                                                                           <h4> {{post.website}}</h4>
@@ -174,7 +181,11 @@
                                                                  </div>
 
                                                                  <div  class="sourceapply">
-                                                                   <button (click)="listClick($event, post)" class="apply_button"><p>POST</p></button>
+                                                                   <button (click)="listClick($event, post)" class="apply_button">
+                                                                     <p *ngIf="post.status === 'new'">POST</p>
+                                                                     <p *ngIf="post.status === 'posted'">Update</p>
+                                                                     <p *ngIf="post.status === 'removed'">Re-Submit</p>
+                                                                   </button>
                                                                  </div>
 
                                  </div>
@@ -195,7 +206,7 @@
                <div class="content">
   <form [formGroup]="userAddForm"	(ngSubmit)="updatePost()" accept-charset="utf-8" id="submit-blog" class="submitForm"	novalidate>
                        <div class="company">
-                           <a href="" class="preventLink">
+                           <a target="_blank" href="{{upost.url}}" class="preventLink">
                                {{upost.url}}
                            </a>
                            <div class="admin-submitter">
@@ -211,6 +222,7 @@
 
 
                               <button type="submit" class="btn btn-success"	[disabled]="!userAddForm.valid"	>POST</button>
+                                <button type="button" class="btn btn-success"	(click)="removePost(upost)">Remove</button>
                        </form>
 
 </div>
