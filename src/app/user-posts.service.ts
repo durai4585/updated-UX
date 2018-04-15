@@ -7,7 +7,7 @@ export class UserPostsService {
 
   private host = window.location.hostname;
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private usersURL = 'http://buxdio.com/posts';
+    private usersURL = 'http://www.buxdio.com/posts';
 
 constructor(private http: HttpClient) { }
 
