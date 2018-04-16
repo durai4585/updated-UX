@@ -1,8 +1,7 @@
 <main>
 <div class="home-content">
 	<div class="JoinToday">
-		<h1 class="h1">Hey Admin, You have URLs to take action as Read
-			and Post.</h1>
+		<h1 class="h1">Hey Admin, You have URLs to take action and post.</h1>
 
 
 	</div>
@@ -15,8 +14,6 @@
 				</a>
 			</div>
 		</div>
-
-
 
 		<section id="admin">
 			<ul class="list">
@@ -34,7 +31,7 @@
 							</a>
 						</div>
 						<div class="UrlDetails">
-							<div class="row">
+							<div class="row tableCell">
 								<div class="company">
 									<a href="" class="preventLink"> {{post.url}} </a>
 									<h3 class="label-featured">{{post.status}}</h3>
@@ -42,10 +39,10 @@
 										<h4>{{post.name}}</h4>
 										<h6>{{post.email}}</h6>
 									</a>
-									<div *ngIf="post && (post.status|lowercase)!='new'">
+									<div *ngIf="(post.status|lowercase)=='posted'">
 										<a href="" class="companyLink"> <span>Website: </span>
 											<h4>{{post.website}}</h4> <span>Title: </span>
-											<h4>{{post.title}} - min 100 chars</h4> <span>View: </span>
+											<h4>{{post.title}}</h4> <span>View: </span>
 											<h4>46</h4>
 										</a>
 									</div>
@@ -56,18 +53,14 @@
 						</div>
 						<div class="sourceapply">
 							<button (click)="listClick($event, post)" class="apply_button">
-								<p *ngIf="post && (post.status|lowercase) === 'new'">Post</p>
-								<p *ngIf="post && (post.status|lowercase) === 'posted'">Update</p>
-								<p *ngIf="post && (post.status|lowercase) === 'removed'">Re-Submit</p>
+								<p *ngIf="(post.status|lowercase) === 'new'">Post</p>
+								<p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
+								<p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
 							</button>
 						</div>
 
 					</div>
 				</li>
-
-
-
-
 			</ul>
 		</section>
 
@@ -97,7 +90,7 @@
 							</a>
 						</div>
 						<div class="UrlDetails">
-							<div class="row">
+							<div class="row tableCell">
 								<div class="company">
 									<a href="" class="preventLink"> {{post.url}} </a>
 									<h3 class="label-featured">{{post.status}}</h3>
@@ -105,10 +98,10 @@
 										<h4>{{post.name}}</h4>
 										<h6>{{post.email}}</h6>
 									</a>
-									<div *ngIf="post && (post.status|lowercase)!='new'">
+									<div *ngIf="(post.status|lowercase)=='posted'">
 										<a href="" class="companyLink"> <span>Website: </span>
 											<h4>{{post.website}}</h4> <span>Title: </span>
-											<h4>{{post.title}} - min 100 chars</h4> <span>View: </span>
+											<h4>{{post.title}}</h4> <span>View: </span>
 											<h4>46</h4>
 										</a>
 									</div>
@@ -120,9 +113,9 @@
 
 						<div class="sourceapply">
 							<button (click)="listClick($event, post)" class="apply_button">
-								<p *ngIf="post && (post.status|lowercase) === 'new'">Post</p>
-								<p *ngIf="post && (post.status|lowercase) === 'posted'">Update</p>
-								<p *ngIf="post && (post.status|lowercase) === 'removed'">Re-Submit</p>
+								<p *ngIf="(post.status|lowercase) === 'new'">Post</p>
+								<p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
+								<p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
 							</button>
 						</div>
 
@@ -157,7 +150,7 @@
 							</a>
 						</div>
 						<div class="UrlDetails">
-							<div class="row">
+							<div class="row tableCell">
 								<div class="company">
 									<a href="" class="preventLink"> {{post.url}} </a>
 									<h3 class="label-featured">{{post.status}}</h3>
@@ -165,10 +158,10 @@
 										<h4>{{post.name}}</h4>
 										<h6>{{post.email}}</h6>
 									</a>
-									<div *ngIf="post && (post.status|lowercase)!='new'">
+									<div *ngIf="(post.status|lowercase)=='posted'">
 										<a href="" class="companyLink"> <span>Website: </span>
 											<h4>{{post.website}}</h4> <span>Title: </span>
-											<h4>{{post.title}} - min 100 chars</h4> <span>View: </span>
+											<h4>{{post.title}}</h4> <span>View: </span>
 											<h4>46</h4>
 										</a>
 									</div>
@@ -180,9 +173,9 @@
 
 						<div class="sourceapply">
 							<button (click)="listClick($event, post)" class="apply_button">
-								<p *ngIf="post && (post.status|lowercase) === 'new'">Post</p>
-								<p *ngIf="post && (post.status|lowercase) === 'posted'">Update</p>
-								<p *ngIf="post && (post.status|lowercase) === 'removed'">Re-Submit</p>
+								<p *ngIf="(post.status|lowercase) === 'new'">Post</p>
+								<p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
+								<p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
 							</button>
 						</div>
 
@@ -198,8 +191,8 @@
 
 </div>
 </main>
-<app-update-posts id="post" [(visible)]="showDialog">
 
+<app-update-posts id="post" [(visible)]="showDialog">
 <h2>Post Details</h2>
 <div class="content">
 	<form [formGroup]="userAddForm" (ngSubmit)="updatePost()"
@@ -226,13 +219,11 @@
 			value="{{upost.website}}" id="submit-field"> <br />
 
 
-		<button type="submit" class="btn btn-success"
+		<button type="submit" class="apply_button btn-success"
 			[disabled]="!userAddForm.valid">POST</button>
-		<button type="button" *ngIf="upost && (upost.status|lowercase) != 'removed'" class="btn btn-success"
+
+		<button type="button" class="apply_button btn-success"
 			(click)="removePost(upost)">Remove</button>
 	</form>
-
 </div>
-
-
 </app-update-posts>

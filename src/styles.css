@@ -88,7 +88,7 @@ header .headerControls:before {
 }
 
 header .headerControls .siteNav-logo {
-    margin: 17px 20px 17px 0;
+    /* margin: 17px 20px 17px 0; */
     display: inline-block;
     font-size: 18px;
     font-weight: 800;
@@ -96,11 +96,11 @@ header .headerControls .siteNav-logo {
     color: rgba(0,0,0,.76);
     text-decoration: none;
     letter-spacing: -.08em;
-    float: left;
+    /* float: left; */
 }
 
 header .headerControls a.siteNav-logo img {
-    width: 1.56em;
+    width: 60px;
     opacity: .76;
 }
 header .headerControls a.siteNav-logo:hover img {
@@ -613,6 +613,22 @@ section#feed ul li.article .postInfo .postMeta {
     bottom: -2%;
 }
 
+
+
+/*  Promoted */
+
+section#feed ul li a .source {
+    color: #b7c3cb;
+}
+
+section#feed ul li.promoted {
+    text-align: center;
+}
+
+
+
+
+
 section#feed ul li a .source {
     float: left;
     display: inline-block;
@@ -628,7 +644,7 @@ section#feed ul li a .source {
 } */
 
 section#feed ul li a .postMeta .virality {
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPâ€¦UtNi41Qy00MDEuMSwyOTcuNy00MDIuNiwyOTYuNy00MDIuNiwyOTMuOHoiLz4NCjwvc3ZnPg0K) no-repeat right;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…UtNi41Qy00MDEuMSwyOTcuNy00MDIuNiwyOTYuNy00MDIuNiwyOTMuOHoiLz4NCjwvc3ZnPg0K) no-repeat right;
     background-size: 10px;
     padding-right: 14px;
     height: 14px;
@@ -693,11 +709,10 @@ section#feed ul li a .postMeta .stats .likes {
 }
 
 .dayWise a.sectionHeader h2 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     color: rgba(0,0,0,.76);
-    line-height: 40px;
     height: 40px;
     letter-spacing: .03em;
     padding-right: 10px;
@@ -711,7 +726,7 @@ section#feed ul li a .postMeta .stats .likes {
     font-size: 12px;
     color: rgba(0,0,0,.54);
 
-    top: 12px;
+    top: 4px;
     position: relative;
     float: left;
 }
@@ -722,12 +737,12 @@ section#feed ul li a .postMeta .stats .likes {
 }
 .dayWise a.sectionHeader h2:after {
     /*background-color: #f6f6f6;*/
-    top: 0px;
+    bottom: 0px;
     content: '';
-    height: 2px;
+    height: 4px;
     left: 0;
     position: absolute;
-    width: 50px;
+    width: 60px;
 }
 
 
@@ -1081,7 +1096,7 @@ form.submitForm input[type="text"]::-moz-placeholder {
 form.submitForm input[type="text"]:-ms-input-placeholder {
     color: rgba(0,0,0,.5);
 }
-form.submitForm input[type="submit"] {
+form.submitForm input.submitBtn {
     margin: 0;
     background-color: rgba(0,0,0,1);
     color: #fff;
@@ -1101,7 +1116,7 @@ form.submitForm input[type="submit"] {
     -o-transition: .1s all ease-in-out;
     transition: .1s all ease-in-out;
 }
-form.submitForm input[type="submit"]:hover {
+form.submitForm input.submitBtn:hover {
     background-color: rgba(0,0,0,.76);
 }
 
@@ -1155,7 +1170,7 @@ form.submitForm .socialIcon {
     height: 65px;
     width: 100%;
     background: inherit;
-    position: fixed;
+    position: relative;
     top: 0;
     bottom: 0;
     z-index: 1000;
@@ -1164,8 +1179,9 @@ form.submitForm .socialIcon {
 
 
     background: #fff;
-    -webkit-box-shadow: 0 2px 2px -2px rgba(90,122,190,0.15);
-    box-shadow: 0 2px 2px -2px rgba(90,122,190,0.15);
+    border-top: 2px solid rgba(0,0,0,.56);
+    /* -webkit-box-shadow: 0 2px 2px -2px rgba(90,122,190,0.15);
+    box-shadow: 0 2px 2px -2px rgba(90,122,190,0.15); */
 
 }
 
@@ -1456,3 +1472,14 @@ background-position: right;
     width: 70%;
   }
 }
+
+
+
+.loadingMore {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    float: left;
+}
+
+.loginPanel {margin-top: 120px;}
