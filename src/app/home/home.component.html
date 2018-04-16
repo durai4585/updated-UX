@@ -4,15 +4,22 @@
       <h1 class="h1">Design Weekly</h1>
       <h3 class="h3">Get a weekly digest of handpicked design news,
         inspiration and jobs.</h3>
-      <form action="#" method="post" accept-charset="utf-8"
-        id="subscribe-blog" class="subscrbeForm">
-        <input type="text" name="email" style="width: 300px;"
-          placeholder="Enter your email address in here" value=""
-          id="subscribe-field"> <input type="submit"
-          value="Join Us Today"> <span class="socialIcon hoverable">JOIN
+
+          <form accept-charset="utf-8" id="subscribe-blog" class="subscrbeForm" name="form" (ngSubmit)="f.form.valid && subscribe()" #f="ngForm" novalidate>
+        <input type="text" name="email" style="width: 300px;" email
+          placeholder="Enter your email address in here" value="" [(ngModel)]="model.email" #email="ngModel"
+          id="subscribe-field">
+
+ <input type="submit" value="Join Us Today">
+          <span class="socialIcon hoverable">JOIN
           FB GROUP (3000+)</span>
       </form>
-      <span class="noSpam">No spam! Unsubscribe at any time.</span>
+
+
+        <div class="noSpam" *ngIf="f.submitted && email.errors?.email;else other_content">email is not valid</div>
+        <ng-template class="noSpam" #other_content>No spam! Unsubscribe at any time.</ng-template>
+  <div class="noSpam" *ngIf="subscribed=='exists'">Alreadey subscribed</div>
+  <div class="noSpam" *ngIf="subscribed=='added'" >Subscribed Successfully</div>
     </div>
     <app-hand-picked></app-hand-picked>
     <app-latest-story></app-latest-story>

@@ -20,10 +20,12 @@ export class HandPickedComponent implements OnInit {
           let list = [];
           results[0].forEach(element => {
               list.push({
+                  "_id": element._id,
                   "title": element.title,
                   "image": element.image,
                   "url": element.url,
-                  "source": "dribbble"
+                  "source": element.website,
+                  "viewcount": element.viewcount
               });
           });
           list.forEach(element => {
@@ -31,5 +33,20 @@ export class HandPickedComponent implements OnInit {
           });
 
         });
+      }
+
+      viewcount(event, post) {
+        console.log(post);
+        this.handPickedService.add_viewcount(post._id)
+          .then(response => {
+            //console.log(response);
+          })
+      }
+      likecount(event, post) {
+        console.log(post);
+        this.handPickedService.add_likecount(post._id)
+          .then(response => {
+            //console.log(response);
+          })
       }
 }

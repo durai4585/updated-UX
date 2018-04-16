@@ -23,6 +23,13 @@ add(user: Posts): Promise<Posts>{
     .catch(this.handleError)
 }
 
+subscribe(email: string){
+  return this.http.post('http://www.buxdio.com/add_subscribe',{ email: email }, {headers: this.headers})
+    .toPromise()
+    .then(response => response)
+    .catch(this.handleError)
+}
+
 /**
    * Handles error thrown during HTTP call
    * @param error:any

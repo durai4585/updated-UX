@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserPostsService } from '../user-posts.service';
 
 @Component({
   selector: 'app-home',
@@ -7,5 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
   export class HomeComponent {
-    title = 'app';
+    model: any = {};
+    subscribed='';
+    constructor(private userPostsService: UserPostsService) { };
+
+    subscribe() {
+        this.userPostsService.subscribe(this.model.email)
+          .then(response => {
+            //console.log(response);
+            if(response.result=='exists'){this.subscribed='exists'}
+            else{this.subscribed='added'}
+          })
+
+    }
   }

@@ -72,7 +72,6 @@ onFileChange(event) {
         this.upost.image=userAddFormvalue.image;
     this.upost.postedDate=new Date();
         this.upost.status='posted';
-      this.upost.isActive='Y';
       //console.log(this.upost);
 
   this.adminService.approvePost(this.upost)
@@ -87,8 +86,7 @@ onFileChange(event) {
              post.status="removed"
                    this.adminService.deletePost(post)
                      .then(response => {
-                         alert("Deleted");
-                         this.router.navigate(['/admin']);
+                           this.showDialog = false;
                      })
                     }
 
