@@ -54,13 +54,15 @@ export class LatestStoryComponent implements OnInit {
 
             temp.forEach( element => {
 
-                console.log( element );
-                list.push( {
-                    "title": element.title,
-                    "url": element.link,
-                    "source": element.host,
-                    "image": element.image
-                } );
+                if ( typeof element.image != 'undefined' && element.image ) {
+                    //console.log( element );
+                    list.push( {
+                        "title": element.title,
+                        "url": element.link,
+                        "source": element.host,
+                        "image": element.image
+                    } );
+                }
 
             } );
 

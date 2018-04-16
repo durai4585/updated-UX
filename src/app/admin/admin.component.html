@@ -1,231 +1,238 @@
 <main>
-               <div class="home-content">
-                   <div class="JoinToday">
-                           <h1 class="h1">Hey Admin, You have URLs to take action as Read and Post. </h1>
+<div class="home-content">
+	<div class="JoinToday">
+		<h1 class="h1">Hey Admin, You have URLs to take action as Read
+			and Post.</h1>
 
 
-                   </div>
-<div class="allfeed">
-               <div class="feedHeader">
-                   <div class="dayWise">
-                       <a href="" class="sectionHeader">
-                       <h2 class="borderYellow">Today</h2>
-                       <span >{{todayDate|date: 'dd MMMM yyyy'}}</span>
-                       </a>
-                   </div>
-               </div>
-
-
-
-                   <section id="admin">
-                       <ul class="list">
-                         <li class="item" *ngFor="let post of todayposts; let i = index">
-                           <div class="grid">
-
-                             <div class="image">
-                                 <a href="" class="imageLink">
-                                   <div class="postImg"><p><img *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}"></p></div>
-                                 </a>
-                             </div>
-                             <div class="UrlDetails">
-                                                             <div class="row">
-                                                               <div class="company">
-                                                                 <a href="" class="preventLink">
-                                                                  {{post.url}}
-                                                                 </a>
-                                                                 <h3 class="label-featured">{{post.status}}</h3>
-                                                                 <a href="" class="companyLink">
-                                                                   <span>Submitted by</span>
-                                                                   <h4>{{post.name}}  </h4>
-                                                                   <h6>{{post.email}} </h6>
-                                                                 </a>
-                                                                 <div *ngIf="(post.status|lowercase)=='posted'">
-                                                                   <a href="" class="companyLink" >
-                                                                    <span>Website: </span>
-                                                                    <h4> {{post.website}}</h4>
-                                                                    <span>Title: </span>
-                                                                    <h4>{{post.title}} - min 100 chars</h4>
-                                                                    <span>View: </span>
-                                                                    <h4>46</h4>
-                                                                  </a>
-                                                                </div>
-
-                                                               </div>
-
-                                                             </div>
-                                                           </div>
-                                                           <div  class="sourceapply">
-                                                             <button (click)="listClick($event, post)" class="apply_button">
-                                                               <p *ngIf="(post.status|lowercase) === 'new'">Post</p>
-                                                               <p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
-                                                               <p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
-                                                             </button>
-                                                           </div>
-
-                           </div>
-                         </li>
+	</div>
+	<div class="allfeed">
+		<div class="feedHeader">
+			<div class="dayWise">
+				<a href="" class="sectionHeader">
+					<h2 class="borderYellow">Today</h2> <span>{{todayDate|date:
+						'dd MMMM yyyy'}}</span>
+				</a>
+			</div>
+		</div>
 
 
 
+		<section id="admin">
+			<ul class="list">
+				<li class="item" *ngFor="let post of todayposts; let i = index">
+					<div class="grid">
 
-                       </ul>
-                     </section>
+						<div class="image">
+							<a href="" class="imageLink">
+								<div class="postImg">
+									<p>
+										<img *ngIf="(post.image)"
+											src="data:image/png;base64,{{post.image.value}}">
+									</p>
+								</div>
+							</a>
+						</div>
+						<div class="UrlDetails">
+							<div class="row">
+								<div class="company">
+									<a href="" class="preventLink"> {{post.url}} </a>
+									<h3 class="label-featured">{{post.status}}</h3>
+									<a href="" class="companyLink"> <span>Submitted by</span>
+										<h4>{{post.name}}</h4>
+										<h6>{{post.email}}</h6>
+									</a>
+									<div *ngIf="(post.status|lowercase)=='posted'">
+										<a href="" class="companyLink"> <span>Website: </span>
+											<h4>{{post.website}}</h4> <span>Title: </span>
+											<h4>{{post.title}} - min 100 chars</h4> <span>View: </span>
+											<h4>46</h4>
+										</a>
+									</div>
 
-               <div class="feedHeader">
-                   <div class="dayWise">
-                       <a href="" class="sectionHeader">
-                       <h2 class="borderYellow">Yesterday</h2>
-                      <span >{{yesterdayDate|date: 'dd MMMM yyyy'}}</span>
-                       </a>
-                   </div>
-               </div>
+								</div>
 
-               <section id="admin">
-                   <ul class="list">
-                     <li class="item" *ngFor="let post of yesterdayposts  ; let i = index">
-                       <div class="grid">
+							</div>
+						</div>
+						<div class="sourceapply">
+							<button (click)="listClick($event, post)" class="apply_button">
+								<p *ngIf="(post.status|lowercase) === 'new'">Post</p>
+								<p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
+								<p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
+							</button>
+						</div>
 
-                         <div class="image">
-                             <a href="" class="imageLink">
-                               <div class="postImg"><p><img *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}"></p></div>
-                             </a>
-                         </div>
-                         <div class="UrlDetails">
-                                                         <div class="row">
-                                                           <div class="company">
-                                                             <a href="" class="preventLink">
-                                                              {{post.url}}
-                                                             </a>
-                                                             <h3 class="label-featured">{{post.status}}</h3>
-                                                             <a href="" class="companyLink">
-                                                               <span>Submitted by</span>
-                                                               <h4>{{post.name}}  </h4>
-                                                               <h6>{{post.email}} </h6>
-                                                             </a>
-                                                             <div *ngIf="(post.status|lowercase)=='posted'">
-                                                               <a href="" class="companyLink" >
-                                                                <span>Website: </span>
-                                                                <h4> {{post.website}}</h4>
-                                                                <span>Title: </span>
-                                                                <h4>{{post.title}} - min 100 chars</h4>
-                                                                <span>View: </span>
-                                                                <h4>46</h4>
-                                                              </a>
-                                                            </div>
-
-                                                           </div>
-
-                                                         </div>
-                                                       </div>
-
-                                                       <div  class="sourceapply">
-                                                         <button (click)="listClick($event, post)" class="apply_button">
-                                                           <p *ngIf="(post.status|lowercase) === 'new'">Post</p>
-                                                           <p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
-                                                           <p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
-                                                         </button>
-                                                       </div>
-
-                       </div>
-                     </li>
-                   </ul>
-                 </section>
-
-                     <div class="feedHeader">
-                         <div class="dayWise">
-                             <a href="" class="sectionHeader">
-                             <h2 class="borderYellow">Older</h2>
-                             <span ></span>
-                             </a>
-                         </div>
-                     </div>
-
-
-                         <section id="admin">
-                             <ul class="list">
-                               <li class="item" *ngFor="let post of olderdayposts; let i = index">
-                                 <div class="grid">
-
-                                   <div class="image">
-                                       <a href="" class="imageLink">
-                                         <div class="postImg"><p><img *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}"></p></div>
-
-                                       </a>
-                                   </div>
-                                   <div class="UrlDetails">
-                                                                   <div class="row">
-                                                                     <div class="company">
-                                                                       <a href="" class="preventLink">
-                                                                        {{post.url}}
-                                                                       </a>
-                                                                       <h3 class="label-featured">{{post.status}}</h3>
-                                                                       <a href="" class="companyLink">
-                                                                         <span>Submitted by</span>
-                                                                         <h4>{{post.name}}  </h4>
-                                                                         <h6>{{post.email}} </h6>
-                                                                       </a>
-                                                                       <div *ngIf="(post.status|lowercase)=='posted'">
-                                                                         <a href="" class="companyLink" >
-                                                                          <span>Website: </span>
-                                                                          <h4> {{post.website}}</h4>
-                                                                          <span>Title: </span>
-                                                                          <h4>{{post.title}} - min 100 chars</h4>
-                                                                          <span>View: </span>
-                                                                          <h4>46</h4>
-                                                                        </a>
-                                                                      </div>
-
-                                                                     </div>
-
-                                                                   </div>
-                                                                 </div>
-
-                                                                 <div  class="sourceapply">
-                                                                   <button (click)="listClick($event, post)" class="apply_button">
-                                                                     <p *ngIf="(post.status|lowercase) === 'new'">Post</p>
-                                                                     <p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
-                                                                     <p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
-                                                                   </button>
-                                                                 </div>
-
-                                 </div>
-                               </li>
+					</div>
+				</li>
 
 
 
 
-                             </ul>
-                           </section>
-               </div>
+			</ul>
+		</section>
 
-               </div>
-           </main>
-           <app-update-posts id="post" [(visible)]="showDialog" >
+		<div class="feedHeader">
+			<div class="dayWise">
+				<a href="" class="sectionHeader">
+					<h2 class="borderYellow">Yesterday</h2> <span>{{yesterdayDate|date:
+						'dd MMMM yyyy'}}</span>
+				</a>
+			</div>
+		</div>
 
-               <h2>Post Details</h2>
-               <div class="content">
-  <form [formGroup]="userAddForm"	(ngSubmit)="updatePost()" accept-charset="utf-8" id="submit-blog" class="submitForm"	novalidate>
-                       <div class="company">
-                           <a target="_blank" href="{{upost.url}}" class="preventLink">
-                               {{upost.url}}
-                           </a>
-                           <div class="admin-submitter">
-                               Submitted by <strong>{{upost.name}} </strong>
-                           </div>
-                       </div>
-                            <input type="hidden" name="_id" value="{{upost._id}}">
-                              <input type="hidden" name="fileHidden" formControlName="image"/> <!-- Validation Field -->
-                           <div class="admin-postImg">Image: <input type="file" name="pic" accept="image/*" (change)="onFileChange($event)"></div>
-                             <input formControlName="title" type="text" name="title" style="width: 640px;" placeholder="Post title" value="{{upost.title}}" id="submit-field">
+		<section id="admin">
+			<ul class="list">
+				<li class="item"
+					*ngFor="let post of yesterdayposts  ; let i = index">
+					<div class="grid">
 
-                             <input formControlName="website" type="text" name="website" style="width: 640px;" placeholder="Website name" value="{{upost.website}}" id="submit-field"> <br />
+						<div class="image">
+							<a href="" class="imageLink">
+								<div class="postImg">
+									<p>
+										<img *ngIf="(post.image)"
+											src="data:image/png;base64,{{post.image.value}}">
+									</p>
+								</div>
+							</a>
+						</div>
+						<div class="UrlDetails">
+							<div class="row">
+								<div class="company">
+									<a href="" class="preventLink"> {{post.url}} </a>
+									<h3 class="label-featured">{{post.status}}</h3>
+									<a href="" class="companyLink"> <span>Submitted by</span>
+										<h4>{{post.name}}</h4>
+										<h6>{{post.email}}</h6>
+									</a>
+									<div *ngIf="(post.status|lowercase)=='posted'">
+										<a href="" class="companyLink"> <span>Website: </span>
+											<h4>{{post.website}}</h4> <span>Title: </span>
+											<h4>{{post.title}} - min 100 chars</h4> <span>View: </span>
+											<h4>46</h4>
+										</a>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="sourceapply">
+							<button (click)="listClick($event, post)" class="apply_button">
+								<p *ngIf="(post.status|lowercase) === 'new'">Post</p>
+								<p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
+								<p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
+							</button>
+						</div>
+
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<div class="feedHeader">
+			<div class="dayWise">
+				<a href="" class="sectionHeader">
+					<h2 class="borderYellow">Older</h2> <span></span>
+				</a>
+			</div>
+		</div>
 
 
-                              <button type="submit" class="btn btn-success"	[disabled]="!userAddForm.valid"	>POST</button>
-                                <button type="button" class="btn btn-success"	(click)="removePost(upost)">Remove</button>
-                       </form>
+		<section id="admin">
+			<ul class="list">
+				<li class="item" *ngFor="let post of olderdayposts; let i = index">
+					<div class="grid">
+
+						<div class="image">
+							<a href="" class="imageLink">
+								<div class="postImg">
+									<p>
+										<img *ngIf="(post.image)"
+											src="data:image/png;base64,{{post.image.value}}">
+									</p>
+								</div>
+
+							</a>
+						</div>
+						<div class="UrlDetails">
+							<div class="row">
+								<div class="company">
+									<a href="" class="preventLink"> {{post.url}} </a>
+									<h3 class="label-featured">{{post.status}}</h3>
+									<a href="" class="companyLink"> <span>Submitted by</span>
+										<h4>{{post.name}}</h4>
+										<h6>{{post.email}}</h6>
+									</a>
+									<div *ngIf="(post.status|lowercase)=='posted'">
+										<a href="" class="companyLink"> <span>Website: </span>
+											<h4>{{post.website}}</h4> <span>Title: </span>
+											<h4>{{post.title}} - min 100 chars</h4> <span>View: </span>
+											<h4>46</h4>
+										</a>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="sourceapply">
+							<button (click)="listClick($event, post)" class="apply_button">
+								<p *ngIf="(post.status|lowercase) === 'new'">Post</p>
+								<p *ngIf="(post.status|lowercase) === 'posted'">Update</p>
+								<p *ngIf="(post.status|lowercase) === 'removed'">Re-Submit</p>
+							</button>
+						</div>
+
+					</div>
+				</li>
+
+
+
+
+			</ul>
+		</section>
+	</div>
+
+</div>
+</main>
+<app-update-posts id="post" [(visible)]="showDialog">
+
+<h2>Post Details</h2>
+<div class="content">
+	<form [formGroup]="userAddForm" (ngSubmit)="updatePost()"
+		accept-charset="utf-8" id="submit-blog" class="submitForm" novalidate>
+		<div class="company">
+			<a target="_blank" href="{{upost.url}}" class="preventLink">
+				{{upost.url}} </a>
+			<div class="admin-submitter">
+				Submitted by <strong>{{upost.name}} </strong>
+			</div>
+		</div>
+		<input type="hidden" name="_id" value="{{upost._id}}"> <input
+			type="hidden" name="fileHidden" formControlName="image" />
+		<!-- Validation Field -->
+		<div class="admin-postImg">
+			Image: <input type="file" name="pic" accept="image/*"
+				(change)="onFileChange($event)">
+		</div>
+		<input formControlName="title" type="text" name="title"
+			style="width: 640px;" placeholder="Post title"
+			value="{{upost.title}}" id="submit-field"> <input
+			formControlName="website" type="text" name="website"
+			style="width: 640px;" placeholder="Website name"
+			value="{{upost.website}}" id="submit-field"> <br />
+
+
+		<button type="submit" class="btn btn-success"
+			[disabled]="!userAddForm.valid">POST</button>
+		<button type="button" class="btn btn-success"
+			(click)="removePost(upost)">Remove</button>
+	</form>
 
 </div>
 
 
-       </app-update-posts>
+</app-update-posts>
