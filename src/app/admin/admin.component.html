@@ -222,7 +222,7 @@
 		<button type="submit" class="apply_button btn-success"
 			[disabled]="!userAddForm.valid">POST</button>
 
-		<button type="button" class="apply_button btn-success"
+		<button type="button" class="apply_button btn-success" *ngIf="upost && (upost.status|lowercase) != 'removed'"
 			(click)="removePost(upost)">Remove</button>
 	</form>
 </div>
