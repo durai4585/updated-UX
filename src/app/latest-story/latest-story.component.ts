@@ -23,6 +23,7 @@ export class LatestStoryComponent implements OnInit {
         this.getData();
     }
     onScrollDown() {
+       
         this.pageNumber += 1;
         this.getData();
     }
@@ -43,12 +44,11 @@ export class LatestStoryComponent implements OnInit {
         this.latestStoryService.getScreenShots( this.pageNumber ).subscribe( results => {
             let list = [];
 
-
             // console.log("RSS :: "+results[0]);
 
             let temp = [];
 
-            //console.log( results[0] );
+            //console.log("Feed :"+ results[0] );
 
             temp = JSON.parse( results[0] );
 
@@ -63,17 +63,13 @@ export class LatestStoryComponent implements OnInit {
                         "image": element.image
                     } );
                 }
-
             } );
-
 
             list.forEach( element => {
 
                 this.posts.push( element );
             } );
-            this.posts.sort( this.predicateBy( 'title' ) );
-
-
+            //this.posts.sort( this.predicateBy( 'title' ) );
 
             console.log( this.pageNumber );
         } );

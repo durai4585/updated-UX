@@ -25,7 +25,8 @@ export class HandPickedComponent implements OnInit {
                   "image": element.image,
                   "url": element.url,
                   "source": element.website,
-                  "viewcount": element.viewcount
+                  "viewcount": element.viewcount,
+                  "likecount": element.likecount
               });
           });
           list.forEach(element => {
@@ -36,14 +37,14 @@ export class HandPickedComponent implements OnInit {
       }
 
       viewcount(event, post) {
-        console.log(post);
+        //console.log(post);
         this.handPickedService.add_viewcount(post._id)
           .then(response => {
             //console.log(response);
           })
       }
       likecount(event, post) {
-        console.log(post);
+        //console.log(post);
         this.handPickedService.add_likecount(post._id)
           .then(response => {
             //console.log(response);
