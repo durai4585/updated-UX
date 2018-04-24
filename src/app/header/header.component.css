@@ -20,12 +20,12 @@ header {
 }
 
 header.smaller {
-    -webkit-box-shadow: 0 10px 30px 0 rgba(90,122,190,0.15);
-    box-shadow: 0 10px 30px 0 rgba(90,122,190,0.15);
-    overflow: hidden;
+    /*-webkit-box-shadow: 0 0px 20px 0 rgba(90,122,190,0.15);
+    box-shadow: 0 0px 20px 0 rgba(90,122,190,0.15);
+    overflow: hidden; */
 }
 header.smaller #logo svg {
-            width: 74px;
+            width: 50px;
 }   
 header #logo svg {
             display: inline-block;
@@ -78,7 +78,7 @@ header .nav-icon {
     vertical-align: top;
 }
 header a.signin {
-    margin: 17px 0;
+    margin: 16px 0;
     display: inline-block;
     margin-left: 20px;
 
@@ -135,7 +135,7 @@ header .userIcon {
 
 header a.menu {
     display: inline-block;
-    margin: 14px 0;
+    margin: 12px 0;
 
     font-size: 18px;
     font-weight: 700;

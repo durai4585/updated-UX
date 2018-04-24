@@ -1152,6 +1152,31 @@ form.submitForm .socialIcon {
 
 
 
+button.submitBtn {
+    margin: 0;
+    background-color: rgba(0,0,0,1);
+    color: #fff;
+    padding: 17px 30px !important;
+    outline: none;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 700;
+
+    position: relative;
+    left: 0;
+
+    -webkit-transition: .1s all ease-in-out;
+    -moz-transition: .1s all ease-in-out;
+    -o-transition: .1s all ease-in-out;
+    transition: .1s all ease-in-out;
+}
+button.submitBtn:hover {
+    background-color: rgba(0,0,0,.76);
+}
+
 
 /* fav heart animation */
 .heart {
