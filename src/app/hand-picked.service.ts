@@ -17,13 +17,13 @@ constructor(private _http: HttpClient) { }
 
   add_viewcount(_id: string){
     //console.log(posts);
-    return this._http.post('https://www.buxdio.com/add_viewcount', { _id: _id }, {headers: this.headers})
+    return this._http.put('https://www.buxdio.com/add_viewcount', { _id: _id }, {headers: this.headers})
       .toPromise()
       .then(response => response)
   }
   add_likecount(_id: string){
     //console.log(posts);
-    return this._http.post('https://www.buxdio.com/add_likecount', { _id: _id }, {headers: this.headers})
+    return this._http.put('https://www.buxdio.com/add_likecount', { _id: _id }, {headers: this.headers})
       .toPromise()
       .then(response => response)
   }

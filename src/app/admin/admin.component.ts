@@ -73,6 +73,9 @@ onFileChange(event) {
     this.upost.postedDate=new Date();
         this.upost.status='posted';
       //console.log(this.upost);
+        
+        this.upost.isApproved ='Y';
+        this.upost.isActive ='Y';
 
   this.adminService.approvePost(this.upost)
       .then(response => {
@@ -84,6 +87,7 @@ onFileChange(event) {
 
            removePost(post) {
              post.status="removed"
+                 post.isActive ='N';
                    this.adminService.deletePost(post)
                      .then(response => {
                            this.showDialog = false;

@@ -404,6 +404,10 @@ section#feed .AllPicks {
 section#feed .AllFeed {
 	margin-top: 10px;
     list-style: none;
+    height: 1500px;
+    width:102%;
+    overflow: auto;
+    padding-right: 22px;
 }
 
 section#feed {
@@ -412,6 +416,8 @@ section#feed {
 
     margin-bottom: 30px;*/
     visibility: visible;
+    overflow: hidden;
+    width:100%;
 }
 
 
