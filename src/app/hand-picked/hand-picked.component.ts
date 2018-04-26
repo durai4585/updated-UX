@@ -14,6 +14,13 @@ export class HandPickedComponent implements OnInit {
   ngOnInit() {
       this.getData();
   }
+  
+  onScrollDown() {
+      
+      this.pageNumber += 1;
+      this.getData();
+  }
+
 
   getData() {
       this.handPickedService.getScreenShots(this.pageNumber).subscribe(results => {

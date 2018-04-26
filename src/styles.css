@@ -402,12 +402,12 @@ section#feed .AllPicks {
 
 
 section#feed .AllFeed {
-	margin-top: 10px;
+	margin-top: 20px;
     list-style: none;
-    height: 1500px;
+    /*height: 1500px;
     width:102%;
+    padding-right: 22px; */
     overflow: auto;
-    padding-right: 22px;
 }
 
 section#feed {
@@ -418,11 +418,14 @@ section#feed {
     visibility: visible;
     overflow: hidden;
     width:100%;
+    
+    margin-bottom: 40px;
 }
 
 
 section#feed ul {
-    margin: 0 -20px;
+    margin: 20px -20px;
+    overflow: auto;
 }
 
 section#feed ul li {
@@ -665,7 +668,19 @@ section#feed ul li a .postMeta .stats .views {
     background-size: 14px;
 }
 
+
 section#feed ul li a .postMeta .stats .likes {
+    /*display: inline-block;*/
+    width: 25px;
+    opacity: .5;
+    padding-right: 18px;
+    background: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0xNC43MDgsMTUuODQ3QzE0LjI1MiwxNC44NjQsMTQsMTMuNzQyLDE0LDEyLjVzMC4yNTItMi40ODksMC43MDgtMy42NTljMC40NTUtMS4xNzEsMS4xMTQtMi4yNjYsMS45MjktMy4yMDUgICAgYzAuODE0LTAuOTM4LDEuNzg0LTEuNzIzLDIuODYtMi4yNzFDMjAuNTc0LDIuODE0LDIxLjc1OCwyLjUsMjMsMi41czIuNDI2LDAuMjUyLDMuNTAzLDAuNzA3YzEuMDc3LDAuNDU2LDIuMDQ2LDEuMTE1LDIuODYsMS45MjkgICAgYzAuODEzLDAuODE0LDEuNDc0LDEuNzg0LDEuOTI5LDIuODYxQzMxLjc0OSw5LjA3MywzMiwxMC4yNTgsMzIsMTEuNXMtMC4yNTIsMi40MjctMC43MDgsMy41MDMgICAgYy0wLjQ1NSwxLjA3Ny0xLjExNCwyLjA0Ny0xLjkyOSwyLjg2MUMyOC41NSwxOC42NzgsMTcuMDc3LDI5LjA0NCwxNiwyOS41bDAsMGwwLDBDMTQuOTIzLDI5LjA0NCwzLjQ1LDE4LjY3OCwyLjYzNiwxNy44NjQgICAgYy0wLjgxNC0wLjgxNC0xLjQ3My0xLjc4NC0xLjkyOS0yLjg2MUMwLjI1MiwxMy45MjcsMCwxMi43NDIsMCwxMS41czAuMjUyLTIuNDI3LDAuNzA3LTMuNTAzQzEuMTYzLDYuOTIsMS44MjEsNS45NSwyLjYzNiw1LjEzNiAgICBDMy40NSw0LjMyMiw0LjQyLDMuNjYzLDUuNDk3LDMuMjA3QzYuNTczLDIuNzUyLDcuNzU3LDIuNSw5LDIuNXMyLjQyNywwLjMxNCwzLjUwMywwLjg2M2MxLjA3NywwLjU1LDIuMDQ2LDEuMzM0LDIuODYxLDIuMjcyICAgIGMwLjgxNCwwLjkzOSwxLjQ3MywyLjAzNCwxLjkyOSwzLjIwNUMxNy43NDgsMTAuMDExLDE4LDExLjI1OCwxOCwxMi41cy0wLjI1MiwyLjM2NC0wLjcwNywzLjM0NyAgICBjLTAuNDU2LDAuOTgzLTEuMTEzLDEuODI4LTEuOTI5LDIuNTE4IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==) no-repeat right;
+    
+    
+    background-size: 14px;
+}
+
+section#feed ul li a .postMeta .stats .bookmark {
     display: inline-block;
     width: 25px;
     opacity: .36;
@@ -686,7 +701,7 @@ section#feed ul li a .postMeta .stats .likes {
 	float: left;
 	position: relative;
     min-height: 1px;
-    margin: 20px 0;
+    margin: 50px 0 20px;
 
  }
 
@@ -943,8 +958,8 @@ section#feed ul li a .postInfo h3 {
 /* join today with email */
 
 .JoinToday {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 100px;
+    padding-bottom: 60px;
     text-align: center;
 }
 
@@ -1357,19 +1372,38 @@ background-position: right;
 }
 
 
-.loadMore {
-    text-align: center;
-}
+
 .loadingMore {
 
     text-align: center;
     cursor: pointer;
-    border: 1px solid;
-    padding: 6px 16px;
-    border-radius: 15px;
-    display: inline-block;
 }
 
+.loadBtn {
+    color: rgba(0,0,0,.76);
+    border: 1px solid rgba(0,0,0,.76);
+    text-align: center;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    font-weight: 600;
+    display: block;
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 14px;
+    box-sizing: border-box;
+        
+}
+.loadBtn span {
+    color: rgba(0,0,0,.35) !important;
+}
+.loadingMore:hover .loadBtn  {
+    background-color: rgba(0,0,0,.76);
+    color: #fff;
+    border: 1px solid rgba(0,0,0,.76);
+}
 
 .GotoTop {
     float: right;
@@ -1458,4 +1492,39 @@ footer .gotIt {
     margin: 0;
     font-weight: 600;
     cursor: pointer;
+}
+
+
+/* goto top footer */
+
+footer a.gotoTop { 
+    display: none;
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    left: 14px;
+    width: 24px;
+    padding: 0;
+    opacity: .25;
+}
+footer.smaller a.gotoTop {
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    left: 14px;
+    width: 24px;
+    padding: 0;
+    opacity: .25;
+    display: block;
+}
+footer.smaller a.gotoTop:hover {
+    opacity: .76;
+}
+
+footer.smaller a.gotoTop .arrowIcon {
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    padding-left: 10px;
+    display: none;
 }
