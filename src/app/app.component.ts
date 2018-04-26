@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  showCookieMsg = false;
+  onClickGotit() {
+      this.showCookieMsg = true;
+  }
 }
