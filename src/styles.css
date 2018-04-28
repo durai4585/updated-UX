@@ -395,29 +395,40 @@ a.goUp:hover span {
     transform: translateY(-24px);
 }
 
+.scrollableFeed {
+    min-height: 85vw;
+}
 section#feed .AllPicks {
     margin-top: 10px;
     list-style: none;
 }
 
-
-section#feed .AllFeed {
-	margin-top: 20px;
-    list-style: none;
+section#feed ul.picks {
+    
     /*height: 1500px;
     width:102%;
     padding-right: 22px; */
+    min-height: 80vw;
+    overflow: auto;
+}
+
+section#feed .AllFeed {
+    
+    /*height: 1500px;
+    width:102%;
+    padding-right: 22px; */
+    min-height: 80vw;
     overflow: auto;
 }
 
 section#feed {
-    -webkit-transition: opacity .3s;
-    /*visibility: hidden;
-
-    margin-bottom: 30px;*/
-    visibility: visible;
+    /*-webkit-transition: opacity .3s;
+    visibility: hidden;
     overflow: hidden;
     width:100%;
+    margin-bottom: 30px;*/
+    visibility: visible;
+    
     
     margin-bottom: 40px;
 }
@@ -425,7 +436,8 @@ section#feed {
 
 section#feed ul {
     margin: 20px -20px;
-    overflow: auto;
+    list-style: none;
+    padding-top: 20px;
 }
 
 section#feed ul li {
@@ -579,13 +591,8 @@ section#feed ul li a:hover .source {
 }
 
 section#feed ul li a:hover .postMeta .stats .likes {
-    background-image: url('assets/images/bookmarkHover.svg');
-    background-repeat: no-repeat;
-    background-position: right;
-    opacity: .56;
-}
-section#feed ul li a:hover .postMeta .stats .likes:hover {
-    opacity: 1;
+    background: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0xNC43MDgsMTUuODQ3QzE0LjI1MiwxNC44NjQsMTQsMTMuNzQyLDE0LDEyLjVzMC4yNTItMi40ODksMC43MDgtMy42NTljMC40NTUtMS4xNzEsMS4xMTQtMi4yNjYsMS45MjktMy4yMDUgICAgYzAuODE0LTAuOTM4LDEuNzg0LTEuNzIzLDIuODYtMi4yNzFDMjAuNTc0LDIuODE0LDIxLjc1OCwyLjUsMjMsMi41czIuNDI2LDAuMjUyLDMuNTAzLDAuNzA3YzEuMDc3LDAuNDU2LDIuMDQ2LDEuMTE1LDIuODYsMS45MjkgICAgYzAuODEzLDAuODE0LDEuNDc0LDEuNzg0LDEuOTI5LDIuODYxQzMxLjc0OSw5LjA3MywzMiwxMC4yNTgsMzIsMTEuNXMtMC4yNTIsMi40MjctMC43MDgsMy41MDMgICAgYy0wLjQ1NSwxLjA3Ny0xLjExNCwyLjA0Ny0xLjkyOSwyLjg2MUMyOC41NSwxOC42NzgsMTcuMDc3LDI5LjA0NCwxNiwyOS41bDAsMGwwLDBDMTQuOTIzLDI5LjA0NCwzLjQ1LDE4LjY3OCwyLjYzNiwxNy44NjQgICAgYy0wLjgxNC0wLjgxNC0xLjQ3My0xLjc4NC0xLjkyOS0yLjg2MUMwLjI1MiwxMy45MjcsMCwxMi43NDIsMCwxMS41czAuMjUyLTIuNDI3LDAuNzA3LTMuNTAzQzEuMTYzLDYuOTIsMS44MjEsNS45NSwyLjYzNiw1LjEzNiAgICBDMy40NSw0LjMyMiw0LjQyLDMuNjYzLDUuNDk3LDMuMjA3QzYuNTczLDIuNzUyLDcuNzU3LDIuNSw5LDIuNXMyLjQyNywwLjMxNCwzLjUwMywwLjg2M2MxLjA3NywwLjU1LDIuMDQ2LDEuMzM0LDIuODYxLDIuMjcyICAgIGMwLjgxNCwwLjkzOSwxLjQ3MywyLjAzNCwxLjkyOSwzLjIwNUMxNy43NDgsMTAuMDExLDE4LDExLjI1OCwxOCwxMi41cy0wLjI1MiwyLjM2NC0wLjcwNywzLjM0NyAgICBjLTAuNDU2LDAuOTgzLTEuMTEzLDEuODI4LTEuOTI5LDIuNTE4IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==) no-repeat right;
+    opacity: .5;
 }
 
 section#feed ul li a .postMeta {
@@ -676,8 +683,8 @@ section#feed ul li a .postMeta .stats .likes {
     padding-right: 18px;
     background: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0xNC43MDgsMTUuODQ3QzE0LjI1MiwxNC44NjQsMTQsMTMuNzQyLDE0LDEyLjVzMC4yNTItMi40ODksMC43MDgtMy42NTljMC40NTUtMS4xNzEsMS4xMTQtMi4yNjYsMS45MjktMy4yMDUgICAgYzAuODE0LTAuOTM4LDEuNzg0LTEuNzIzLDIuODYtMi4yNzFDMjAuNTc0LDIuODE0LDIxLjc1OCwyLjUsMjMsMi41czIuNDI2LDAuMjUyLDMuNTAzLDAuNzA3YzEuMDc3LDAuNDU2LDIuMDQ2LDEuMTE1LDIuODYsMS45MjkgICAgYzAuODEzLDAuODE0LDEuNDc0LDEuNzg0LDEuOTI5LDIuODYxQzMxLjc0OSw5LjA3MywzMiwxMC4yNTgsMzIsMTEuNXMtMC4yNTIsMi40MjctMC43MDgsMy41MDMgICAgYy0wLjQ1NSwxLjA3Ny0xLjExNCwyLjA0Ny0xLjkyOSwyLjg2MUMyOC41NSwxOC42NzgsMTcuMDc3LDI5LjA0NCwxNiwyOS41bDAsMGwwLDBDMTQuOTIzLDI5LjA0NCwzLjQ1LDE4LjY3OCwyLjYzNiwxNy44NjQgICAgYy0wLjgxNC0wLjgxNC0xLjQ3My0xLjc4NC0xLjkyOS0yLjg2MUMwLjI1MiwxMy45MjcsMCwxMi43NDIsMCwxMS41czAuMjUyLTIuNDI3LDAuNzA3LTMuNTAzQzEuMTYzLDYuOTIsMS44MjEsNS45NSwyLjYzNiw1LjEzNiAgICBDMy40NSw0LjMyMiw0LjQyLDMuNjYzLDUuNDk3LDMuMjA3QzYuNTczLDIuNzUyLDcuNzU3LDIuNSw5LDIuNXMyLjQyNywwLjMxNCwzLjUwMywwLjg2M2MxLjA3NywwLjU1LDIuMDQ2LDEuMzM0LDIuODYxLDIuMjcyICAgIGMwLjgxNCwwLjkzOSwxLjQ3MywyLjAzNCwxLjkyOSwzLjIwNUMxNy43NDgsMTAuMDExLDE4LDExLjI1OCwxOCwxMi41cy0wLjI1MiwyLjM2NC0wLjcwNywzLjM0NyAgICBjLTAuNDU2LDAuOTgzLTEuMTEzLDEuODI4LTEuOTI5LDIuNTE4IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==) no-repeat right;
     
-    
-    background-size: 14px;
+    margin-left: 14px;
+    background-size: 12px;
 }
 
 section#feed ul li a .postMeta .stats .bookmark {
@@ -1377,6 +1384,7 @@ background-position: right;
 
     text-align: center;
     cursor: pointer;
+    clear: both;
 }
 
 .loadBtn {
@@ -1397,12 +1405,15 @@ background-position: right;
         
 }
 .loadBtn span {
-    color: rgba(0,0,0,.35) !important;
+    color: rgba(0,0,0,.35);
 }
 .loadingMore:hover .loadBtn  {
     background-color: rgba(0,0,0,.76);
     color: #fff;
     border: 1px solid rgba(0,0,0,.76);
+}
+.loadingMore:hover .loadBtn span  {
+    color: #fff;
 }
 
 .GotoTop {
@@ -1414,117 +1425,33 @@ background-position: right;
     border-radius: 15px;
 }
 
-
-
 .loginPanel {margin-top: 120px;}
 
 
-
-
-
-/* Footer */
-
-footer {
-    float: left;
-    padding: 40px 0;
-}
-
-footer .Cookie {
-    background: #F1F1F1;
-    color: #232323;
-    font-size: 14px;
-    padding: 1.250em;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;
-    overflow: hidden;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    z-index: 9999;
-    width: 100%;
-    /* display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex; */
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    border-radius: 4px;
-}
-
-@media (min-width: 68.75em) {
-footer .Cookie {
-    width: 760px;
-    /*height: 55px; */
-    bottom: 25px;
-    left: 50%;
-    margin-left: -380px;
-    padding: 10px 30px;
-    color: rgba(0,0,0,.5);
-}
-}
-
-@media screen and (min-width: 48rem) {
-.CookieButtons {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    display: inline-block;
-    margin-left: 10px;
-}
-}
-footer .Cookie a {
-    color: rgba(0,0,0,.5);
-    font-weight: 400;
-}
-footer .gotIt {
-    color: #286efa;
-    background-color: transparent;
-    padding: 0;
-    margin: 0;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-
-/* goto top footer */
-
-footer a.gotoTop { 
-    display: none;
-    position: fixed;
-    height: 40px;
-    bottom: 0;
-    left: 14px;
-    width: 24px;
-    padding: 0;
-    opacity: .25;
-}
-footer.smaller a.gotoTop {
-    position: fixed;
-    height: 40px;
-    bottom: 0;
-    left: 14px;
-    width: 24px;
-    padding: 0;
-    opacity: .25;
+.socialBtns {
     display: block;
-}
-footer.smaller a.gotoTop:hover {
-    opacity: .76;
+    margin: 20px;
 }
 
-footer.smaller a.gotoTop .arrowIcon {
-    white-space: nowrap;
-    display: block;
-    overflow: hidden;
-    padding-left: 10px;
-    display: none;
+
+
+
+section.privacyContent {
+    
+}
+
+section.privacyContent h3 {
+    
+}
+section.privacyContent p {
+    
+}
+section.privacyContent ul {
+    
+}
+section.privacyContent ul.abcd li {
+    
+}
+section.privacyContent ul.dots li {
+    
 }

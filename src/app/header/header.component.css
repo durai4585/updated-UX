@@ -12,11 +12,7 @@ header {
     background-color: #fff;
 }
 
-header.smaller {
-}
-header.smaller #logo svg {
-            width: 50px;
-}   
+   
 header #logo svg {
             display: inline-block;
             float: left;
@@ -142,6 +138,20 @@ header a.menu:hover {
 
 }
 
+header a.menu img {
+    width: 24px;
+    vertical-align: middle;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+header a.menu:hover img {
+    opacity: .76 !important;
+}
+
 
 
 header .headerControls .siteNav-logo {
@@ -166,18 +176,28 @@ header .headerControls a.siteNav-logo:hover svg {
 
 
 /* Menu change */          
-        
+
+header.showHeader #logo svg {
+            width: 50px;
+}
 header .contactUs {
     display: none;
 }
-header.smaller .contactUs {
+header.showHeader .contactUs {
     display:inline-block;
                 
 }
 header .contactUs a.menu {
-    opacity: .25;
+    opacity: .20;
 }
-header.smaller a.home {
+header .contactUs a.menu:hover {
+    opacity: .76;
+}
+header.showHeader a.home {
     display: none;
                 
+}
+
+a.admin {
+    color: rgb(255, 63, 69) !important;
 }

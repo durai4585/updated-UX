@@ -1,0 +1,117 @@
+
+
+/* Footer */
+
+footer {
+    float: left;
+    padding: 40px 0;
+}
+
+
+footer .Cookie { 
+    display: none;
+}
+footer.showFooter .Cookie {
+    display: block;
+    background: #F1F1F1;
+    color: #232323;
+    font-size: 14px;
+    padding: 1.250em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 9999;
+    width: 100%;
+    /* display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; */
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    border-radius: 4px;
+}
+
+@media (min-width: 68.75em) {
+footer .Cookie {
+    display: none;
+}
+footer.showFooter .Cookie {
+    display: block;
+    width: 760px;
+    /*height: 55px; */
+    bottom: 25px;
+    left: 50%;
+    margin-left: -380px;
+    padding: 10px 30px;
+    color: rgba(0,0,0,.5);
+}
+}
+
+@media screen and (min-width: 48rem) {
+.CookieButtons {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: inline-block;
+    margin-left: 10px;
+}
+}
+footer .Cookie a {
+    color: rgba(0,0,0,.5);
+    font-weight: 400;
+}
+footer .gotIt {
+    color: #286efa;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* goto top footer */
+
+footer a.gotoTop { 
+    display: none;
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    left: 14px;
+    width: 24px;
+    padding: 0;
+    opacity: .25;
+}
+footer.showFooter a.gotoTop {
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    left: 14px;
+    width: 24px;
+    padding: 0;
+    opacity: .25;
+    display: block;
+}
+footer.showFooter a.gotoTop:hover {
+    opacity: .76;
+}
+
+footer.showFooter a.gotoTop .arrowIcon {
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    padding-left: 10px;
+    width: 24px;
+}

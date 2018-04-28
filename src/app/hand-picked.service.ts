@@ -11,7 +11,7 @@ constructor(private _http: HttpClient) { }
 
   getScreenShots(page: number): Observable<any[]> {
     return forkJoin([
-    this._http.get('https://www.buxdio.com/hand-picked-posts')
+    this._http.get('https://www.buxdio.com/hand-picked-posts/'+ page)
     ]);
   }
 

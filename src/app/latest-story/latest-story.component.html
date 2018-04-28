@@ -6,6 +6,7 @@
 	</div>
 </div>
 
+<div class="scrollableFeed">
 <section id="feed">
     <ul class="AllFeed" infinite-scroll [infiniteScrollDistance]="2"
 		[infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScrollDown()">
@@ -24,11 +25,7 @@
 				</div>
             </a>
         </li>
- 
-          <!-- <button md-button (click)="onScrollDown()">Click to Load More...</button> -->
-          <div class="loadingMore"  (click)="onScrollDown()">Loading More #BestUXDesign ...
-					</div>
     </ul>
     <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More <span>Lastest Stories</span></div></div>
  </section>
-
+</div>
