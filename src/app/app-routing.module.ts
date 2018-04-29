@@ -7,11 +7,12 @@ import {AdminComponent}     from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
+ // {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', component: HomeComponent},
   {path: 'userposts', component: UserPostsComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'login', component: LoginComponent}
+ // {path: '**', component: PageNotFoundComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

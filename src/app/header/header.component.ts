@@ -21,8 +21,9 @@ if(this.currentUser){this.isAdmin=true}else{this.isAdmin=false}
   })
 
 
-   console.log(  this.currentUser);
-   console.log(  this.isAdmin); }
+  // console.log(  this.currentUser);
+  // console.log(  this.isAdmin); 
+  }
   ngOnInit() {
   }
   logout() {

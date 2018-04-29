@@ -13,23 +13,25 @@ constructor(private _http: HttpClient) { }
 
   getScreenShots(page: number): Observable<any[]> {
     return forkJoin([
-    this._http.get('https://www.buxdio.com/posts')
+    this._http.get('https://www.bestuxdesign.com/posts')
     ]);
   }
 
   approvePost(posts: Posts): Promise<Posts>{
     //console.log(posts);
-    return this._http.put('https://www.buxdio.com/approve_posts', posts, {headers: this.headers})
+    return this._http.put('https://www.bestuxdesign.com/approve_posts', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)
       .catch(this.handleError)
   }
+  
   deletePost(posts: Posts): Promise<Posts>{
-    return this._http.put('https://www.buxdio.com/delete_posts', posts, {headers: this.headers})
+    return this._http.put('https://www.bestuxdesign.com/delete_posts', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)
       .catch(this.handleError)
   }
+  
   /**
      * Handles error thrown during HTTP call
      * @param error:any

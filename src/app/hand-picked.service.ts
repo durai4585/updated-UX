@@ -11,19 +11,19 @@ constructor(private _http: HttpClient) { }
 
   getScreenShots(page: number): Observable<any[]> {
     return forkJoin([
-    this._http.get('https://www.buxdio.com/hand-picked-posts/'+ page)
+    this._http.get('https://www.bestuxdesign.com/hand-picked-posts/'+ page)
     ]);
   }
 
   add_viewcount(_id: string){
     //console.log(posts);
-    return this._http.put('https://www.buxdio.com/add_viewcount', { _id: _id }, {headers: this.headers})
+    return this._http.put('https://www.bestuxdesign.com/add_viewcount', { _id: _id }, {headers: this.headers})
       .toPromise()
       .then(response => response)
   }
   add_likecount(_id: string){
     //console.log(posts);
-    return this._http.put('https://www.buxdio.com/add_likecount', { _id: _id }, {headers: this.headers})
+    return this._http.put('https://www.bestuxdesign.com/add_likecount', { _id: _id }, {headers: this.headers})
       .toPromise()
       .then(response => response)
   }

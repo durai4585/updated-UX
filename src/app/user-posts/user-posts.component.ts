@@ -37,12 +37,13 @@ import {Location} from "@angular/common";
       user.postedDate=new Date();
         user.isActive='Y';
         user.status='New';
-        console.log(user);
+        //console.log(user);
 
       this.userPostsService.add(user)
         .then(response => {
-          console.log(response);
-          this.router.navigate(['/home']);
+         // console.log(response);
+            alert("Thank you!! Your details has been submitted successfully")
+          this.router.navigate(['/']);
         })
     }
   }
