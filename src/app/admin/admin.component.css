@@ -397,3 +397,14 @@
 .admin-submitter strong {
     font-weight: 600;
 }
+
+.infoMsg {
+    background-color: #F7F7F7;
+    display: block;
+    max-width: 500px;
+    margin: 20px auto;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+}

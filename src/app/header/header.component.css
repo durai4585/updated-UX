@@ -201,3 +201,12 @@ header.showHeader a.home {
 a.admin {
     color: rgb(255, 63, 69) !important;
 }
+
+
+
+
+.socialBtns {
+    display: block;
+    margin: 20px;
+    clear: both;
+}

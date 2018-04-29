@@ -2,8 +2,8 @@
     <div class="home-content">
             <div class="JoinToday">
                 <img class="browserImg" src="/assets/images/browser.svg" alt="Submit your link">
-                <h1 class="h1">Drop Us a Cool link</h1>
-                <h3 class="h3">The link will be published and reaches thousands of UXers</h3>
+                <h1 class="h1">Drop us a cool link</h1>
+                <h3 class="h3">The link will be reviewed, and approved UI UX design related news stories, articles, portfolios, jobs, events, and tutorials.</h3>
 
 				<form [formGroup]="userAddForm"	(ngSubmit)="add()" accept-charset="utf-8" id="submit-blog" class="submitForm"	novalidate>
 
@@ -11,10 +11,13 @@
                     <input formControlName="email" type="text" name="email" style="width: 300px;" placeholder="Your email" value="{{user.email}}" id="submit-field"> <br />
                     <input formControlName="url" type="text" name="url" style="width: 640px;" placeholder="Your URL" value="{{user.url}}" id="submit-field" url> <br />
 
-
+	
 				<button class="submitBtn  btn-success"	[disabled]="!userAddForm.valid"	>Submit URL</button>
+				<div *ngIf="!userAddForm.valid" class="infoMsg">
+                    Please validate your input.
+                </div>
+				
                 </form>
             </div>
-
     </div>
 </main>

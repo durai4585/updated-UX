@@ -42,7 +42,7 @@ import {Location} from "@angular/common";
       this.userPostsService.add(user)
         .then(response => {
          // console.log(response);
-            alert("Thank you!! Your details has been submitted successfully")
+            alert("Thank you! We'll be in touch shortly.")
           this.router.navigate(['/']);
         })
     }

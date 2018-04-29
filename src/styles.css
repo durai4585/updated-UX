@@ -1428,14 +1428,6 @@ background-position: right;
 .loginPanel {margin-top: 120px;}
 
 
-.socialBtns {
-    display: block;
-    margin: 20px;
-}
-
-
-
-
 section.privacyContent {
     
 }
@@ -1454,4 +1446,27 @@ section.privacyContent ul.abcd li {
 }
 section.privacyContent ul.dots li {
     
+}
+
+.coptyRights {
+    text-align: center;
+    display: block;
+    margin: 20px;
+    clear: both;
+    height: 50px;
+    width: 500px;
+    
+}
+
+
+
+.infoMsg {
+    background-color:#fff8e5;
+    display: block;
+    max-width: 500px;
+    margin: 20px auto;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
 }
