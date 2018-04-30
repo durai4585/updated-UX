@@ -8,13 +8,10 @@
         }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-
 <div class="home-content">
     <div class="JoinToday">
       <h1 class="h1">Discover tomorrow's design - Get started today!</h1>
-      <h3 class="h3">Join our email digest is a short and sweet bundle of the inspiring design, UI, UX 
-and interactive news from around the web. It's simply best!</h3>
+      <h3 class="h3">Join our email digest is a short and sweet bundle of the inspiring design, UI, UX and <br />interactive news from around the web. It's simply best!</h3>
       <form action="#" method="post" accept-charset="utf-8"
         id="subscribe-blog" class="subscrbeForm" (ngSubmit)="f.form.valid && subscribe()" #f="ngForm" novalidate>
         <input type="text" name="email"
@@ -28,9 +25,10 @@ and interactive news from around the web. It's simply best!</h3>
         <div class="noSpam" *ngIf="subscribed=='added'" >You're so in! Thank you for joining our newsletter</div>
         <div class="socialBtns">
         <div class="fb-like" data-href="https://www.facebook.com/bestUXDesign/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
-        <a href="https://twitter.com/bestUXDesign?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-dnt="true" data-show-count="false">Follow @bestUXDesign</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <a href="https://twitter.com/BestUXDesign?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-dnt="true" data-show-count="false">Follow @BestUXDesign</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
         </div>
     </div>
     <app-hand-picked></app-hand-picked>
     <app-latest-story></app-latest-story>
+    <app-footer></app-footer>
 </div>

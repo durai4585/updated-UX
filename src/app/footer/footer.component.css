@@ -1,10 +1,9 @@
-
-
 /* Footer */
 
 footer {
-    float: left;
-    padding: 40px 0;
+    text-align: center;
+    padding-top: 40px;
+    clear: both;
 }
 
 

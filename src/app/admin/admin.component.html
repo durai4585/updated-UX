@@ -211,6 +211,10 @@
 			Image: <input type="file" name="pic" accept="image/*"
 				(change)="onFileChange($event)">
 		</div>
+		 <input
+			formControlName="url" type="text" name="url"
+			style="width: 640px;" placeholder="URL"
+			value="{{upost.url}}" id="submit-field">
 		<input formControlName="title" type="text" name="title"
 			style="width: 640px;" placeholder="Post title"
 			value="{{upost.title}}" id="submit-field"> <input

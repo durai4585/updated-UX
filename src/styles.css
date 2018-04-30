@@ -1450,14 +1450,26 @@ section.privacyContent ul.dots li {
 
 .coptyRights {
     text-align: center;
-    display: block;
-    margin: 20px;
     clear: both;
-    height: 50px;
-    width: 500px;
+}
+.footer-brand {
+    display: inline-block;
+    margin: 12px 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.76);
+    text-decoration: none;
+    padding: 5px 10px;
+    letter-spacing: -1px;
+}
+.footer-about {
     
 }
-
+.footer-copy {
+    color: rgba(0,0,0,.50);
+    margin-top: 10px;
+}
 
 
 .infoMsg {
@@ -1469,4 +1481,9 @@ section.privacyContent ul.dots li {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
+}
+
+.socialBtns {
+    margin-top: 20px;
+    clear: both;
 }

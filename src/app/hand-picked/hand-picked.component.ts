@@ -26,6 +26,7 @@ export class HandPickedComponent implements OnInit {
       this.handPickedService.getScreenShots(this.pageNumber).subscribe(results => {
           let list = [];
           results[0].forEach(element => {
+              //console.log("element.url : "+ element.url);
               list.push({
                   "_id": element._id,
                   "title": element.title,
@@ -44,7 +45,7 @@ export class HandPickedComponent implements OnInit {
       }
 
       viewcount(event, post) {
-        //console.log(post);
+        //console.log("view count : "+ post);
         this.handPickedService.add_viewcount(post._id)
           .then(response => {
             //console.log(response);

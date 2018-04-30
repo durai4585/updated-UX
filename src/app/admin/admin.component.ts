@@ -38,7 +38,8 @@ export class AdminComponent implements OnInit {
     this.userAddForm = this.formBuilder.group({
       image: [''],
       title: [''],
-      website: ['']
+      website: [''],
+      url: ['']
     });
   }
   listClick(event, newValue) {
@@ -48,6 +49,7 @@ export class AdminComponent implements OnInit {
       this.userAddForm.controls['title'].setValue(newValue.title);
       this.userAddForm.controls['website'].setValue(newValue.website);
       this.userAddForm.controls['image'].setValue(newValue.image);
+      this.userAddForm.controls['url'].setValue(newValue.url);
     // ... do other stuff here ...
 }
 onFileChange(event) {
@@ -70,9 +72,10 @@ onFileChange(event) {
     this.upost.title=userAddFormvalue.title;
       this.upost.website=userAddFormvalue.website;
         this.upost.image=userAddFormvalue.image;
+        this.upost.url=userAddFormvalue.url;
     this.upost.postedDate=new Date();
         this.upost.status='posted';
-      //console.log(this.upost);
+     // console.log("updatePost----> "+this.upost);
         
         this.upost.isApproved ='Y';
         this.upost.isActive ='Y';
@@ -93,13 +96,12 @@ onFileChange(event) {
                            this.showDialog = false;
                      })
                     }
-
   getData() {
       this.adminService.getScreenShots(this.pageNumber).subscribe(results => {
 
           results[0].forEach(element => {
              let postDate = new Date(element.postedDate);
-              console.log(element);
+              //console.log(element);
               //this.todayposts.date=todayDate.setHours(0,0,0,0);
 
             this.yesterdayDate =  new Date(this.yesterdayDate.setDate(this.todayDate.getDate() - 1));
