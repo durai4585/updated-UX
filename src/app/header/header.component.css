@@ -148,8 +148,19 @@ header a.menu img {
     transition: all 0.3s;
 }
 
+header a.menu img {
+    -webkit-filter: grayscale(100%);
+       -moz-filter: grayscale(100%);
+         -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+}
 header a.menu:hover img {
-    opacity: .76 !important;
+    -webkit-filter: grayscale(0%);
+       -moz-filter: grayscale(0%);
+         -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
 }
 
 
@@ -188,10 +199,10 @@ header.showHeader .contactUs {
                 
 }
 header .contactUs a.menu {
-    opacity: .20;
+    opacity: .56;
 }
 header .contactUs a.menu:hover {
-    opacity: .76;
+    opacity: 1;
 }
 header.showHeader a.home {
     display: none;
