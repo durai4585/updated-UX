@@ -1,0 +1,71 @@
+<div class="wrapper">
+  <aside class="active">
+
+
+
+          <div class="gallery">
+
+
+
+
+
+            	<section id="feed" >
+
+            		<ul class="picks">
+            			  <!-- <li class="gridItem promoted">
+                            <a href="#">
+                                <div class="postPhoto imgLoaded">
+                                  <img class="img-responsive" src="" alt>
+                                </div>
+
+                                <div class="postInfo">
+                                  <h3></h3>
+                                  <div class="postMeta">
+                                    <span _ngcontent-c3="" class="promoText" title=""></span>
+                                  </div>
+                                </div>
+                            </a>
+                        </li> -->
+  <a  [href]='iFrameURL()'>Close iFrame</a>
+                        <li class="gridItem" *ngFor="let post of posts" style="width: 100%;float:none">
+            							<input type="hidden" name="_id" value="{{post._id}}">
+            				<a  target="_blank" (click)="viewcount($event, post)">
+            				    <div class="postPhoto imgLoaded">
+            				        <img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}">
+            				    </div>
+
+            				    <div class="postInfo">
+            				           <!--  <div class="heart"></div> -->
+            				            <h3>{{post.title}}</h3>
+
+            				            <div class="postMeta">
+            								<span title="" class="source dribbble">{{post.source}}</span>
+            								<div class="stats">
+            								    <span class="views" title="Most viewed">{{post.viewcount}}</span>
+                                               <!--  <span class="likes" title="Most liked">45</span> -->
+            								</div>
+            				            </div>
+            				    </div>
+            				</a>
+                        </li>
+            		</ul>
+                    <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More <span>Handpicked Stories</span></div></div>
+            	</section>
+
+
+
+          </div>
+      </aside>
+      <!-- sidebar end -->
+
+      <main>
+          <div class="overlay"></div>
+
+          <iframe class="mainframe" [src]='iFrameURL()' frameborder="0" sandbox="allow-scripts allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock"></iframe>
+
+      </main>
+
+      <!-- main iframe part end -->
+
+  </div>
+  <!-- container end -->

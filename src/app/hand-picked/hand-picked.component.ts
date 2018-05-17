@@ -14,9 +14,9 @@ export class HandPickedComponent implements OnInit {
   ngOnInit() {
       this.getData();
   }
-  
+
   onScrollDown() {
-      
+
       this.pageNumber += 1;
       this.getData();
   }
@@ -26,12 +26,14 @@ export class HandPickedComponent implements OnInit {
       this.handPickedService.getScreenShots(this.pageNumber).subscribe(results => {
           let list = [];
           results[0].forEach(element => {
-              //console.log("element.url : "+ element.url);
+              console.log("element.isIframe : "+ element.isIframe);
+              let url = element.url
+            //if(element.isIframe) {url = "http://localhost:4200//detail/"+element._id}
               list.push({
                   "_id": element._id,
                   "title": element.title,
                   "image": element.image,
-                  "url": element.url,
+                  "url": url,
                   "source": element.website,
                   "viewcount": element.viewcount,
                   "likecount": element.likecount

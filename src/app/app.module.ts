@@ -25,6 +25,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { UpdatePostsComponent } from './update-posts/update-posts.component';
 import { FooterComponent } from './footer/footer.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FooterComponent } from './footer/footer.component';
     UserPostsComponent,
     AdminComponent,
     UpdatePostsComponent,
-    FooterComponent
+    FooterComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule

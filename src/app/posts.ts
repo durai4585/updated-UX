@@ -4,6 +4,7 @@ export class Posts {
   email: string;
   url: string;
   title: string;
+  metatitle: string;
   image: string;
   website: string;
   postedDate: Date;
@@ -12,5 +13,6 @@ export class Posts {
   updatedAt: string;
   isApproved: string;
   isActive: string;
+  isIframe: boolean;
   __v?:number;
 }

@@ -39,7 +39,9 @@ export class AdminComponent implements OnInit {
       image: [''],
       title: [''],
       website: [''],
-      url: ['']
+      url: [''],
+      metatitle: [''],
+      isIframe: false
     });
   }
   listClick(event, newValue) {
@@ -50,6 +52,8 @@ export class AdminComponent implements OnInit {
       this.userAddForm.controls['website'].setValue(newValue.website);
       this.userAddForm.controls['image'].setValue(newValue.image);
       this.userAddForm.controls['url'].setValue(newValue.url);
+        this.userAddForm.controls['metatitle'].setValue(newValue.metatitle);
+        this.userAddForm.controls['isIframe'].setValue(newValue.isIframe);
     // ... do other stuff here ...
 }
 onFileChange(event) {
@@ -73,10 +77,12 @@ onFileChange(event) {
       this.upost.website=userAddFormvalue.website;
         this.upost.image=userAddFormvalue.image;
         this.upost.url=userAddFormvalue.url;
+        this.upost.metatitle=userAddFormvalue.metatitle;
+        this.upost.isIframe=userAddFormvalue.isIframe;
     this.upost.postedDate=new Date();
         this.upost.status='posted';
      // console.log("updatePost----> "+this.upost);
-        
+
         this.upost.isApproved ='Y';
         this.upost.isActive ='Y';
 
@@ -113,10 +119,12 @@ onFileChange(event) {
                   "email": element.email,
                   "url": element.url,
                   "title": element.title,
+                  "metatitle": element.metatitle,
                   "image": element.image,
                   "website": element.website,
                   "status": element.status,
-                  "postedDate": element.postedDate
+                  "postedDate": element.postedDate,
+                  "isIframe": element.isIframe
                   });
               }
               else if(this.yesterdayDate.setHours(0,0,0,0) === postDate.setHours(0,0,0,0))
@@ -127,10 +135,12 @@ onFileChange(event) {
                     "email": element.email,
                     "url": element.url,
                     "title": element.title,
+                    "metatitle": element.metatitle,
                     "image": element.image,
                     "website": element.website,
                     "status": element.status,
-                    "postedDate": element.postedDate
+                    "postedDate": element.postedDate,
+                    "isIframe": element.isIframe
                   });
               }
               else
@@ -141,10 +151,12 @@ onFileChange(event) {
                     "email": element.email,
                     "url": element.url,
                     "title": element.title,
+                    "metatitle": element.metatitle,
                     "image": element.image,
                     "website": element.website,
                     "status": element.status,
-                    "postedDate": element.postedDate
+                    "postedDate": element.postedDate,
+                    "isIframe": element.isIframe
                   });
               }
           });

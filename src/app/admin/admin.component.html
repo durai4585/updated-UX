@@ -220,9 +220,14 @@
 			value="{{upost.title}}" id="submit-field"> <input
 			formControlName="website" type="text" name="website"
 			style="width: 640px;" placeholder="Website name"
-			value="{{upost.website}}" id="submit-field"> <br />
-
-
+			value="{{upost.website}}" id="submit-field">
+			<input formControlName="metatitle" type="text" name="metatitle"
+				style="width: 640px;" placeholder="Meta title"
+				value="{{upost.metatitle}}" id="submit-field"><br />
+IFrame:
+<input formControlName="isIframe" type="checkbox" name="isIframe"
+	value="{{upost.isIframe}}" id="submit-field"><br />
+<br />
 		<button type="submit" class="apply_button btn-success"
 			[disabled]="!userAddForm.valid">POST</button>
 

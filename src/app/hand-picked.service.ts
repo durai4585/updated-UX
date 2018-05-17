@@ -14,6 +14,11 @@ constructor(private _http: HttpClient) { }
     this._http.get('https://www.bestuxdesign.com/hand-picked-posts/'+ page)
     ]);
   }
+  getPostById(_id: string){
+    return forkJoin([
+    this._http.get<any[]>('https://www.bestuxdesign.com/hand-picked-posts/getbyid/'+ _id)
+    ]);
+  }
 
   add_viewcount(_id: string){
     //console.log(posts);
