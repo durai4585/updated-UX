@@ -1,34 +1,15 @@
 <div class="wrapper">
   <aside class="active">
-
-
-
           <div class="gallery">
-
-
-
-
-
             	<section id="feed" >
-
+                    <div class="detailBtns">
+                        <a class="backToHome" routerLink="/">BestUXDesign</a>
+                        <a class="closeIframe"  [href]='iFrameURL()'>iFrame</a>
+                    </div>
             		<ul class="picks">
-            			  <!-- <li class="gridItem promoted">
-                            <a href="#">
-                                <div class="postPhoto imgLoaded">
-                                  <img class="img-responsive" src="" alt>
-                                </div>
-
-                                <div class="postInfo">
-                                  <h3></h3>
-                                  <div class="postMeta">
-                                    <span _ngcontent-c3="" class="promoText" title=""></span>
-                                  </div>
-                                </div>
-                            </a>
-                        </li> -->
-  <a  [href]='iFrameURL()'>Close iFrame</a>
-                        <li class="gridItem" *ngFor="let post of posts" style="width: 100%;float:none">
-            							<input type="hidden" name="_id" value="{{post._id}}">
+                        
+                        <li class="gridItem detail" *ngFor="let post of posts">
+            				<input type="hidden" name="_id" value="{{post._id}}">
             				<a  target="_blank" (click)="viewcount($event, post)">
             				    <div class="postPhoto imgLoaded">
             				        <img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}">
@@ -49,7 +30,7 @@
             				</a>
                         </li>
             		</ul>
-                    <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More <span>Handpicked Stories</span></div></div>
+                    <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More</div></div>
             	</section>
 
 
@@ -61,7 +42,13 @@
       <main>
           <div class="overlay"></div>
 
-          <iframe class="mainframe" [src]='iFrameURL()' frameborder="0" sandbox="allow-scripts allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock"></iframe>
+          <iframe class="mainframe" [src]='iFrameURL()' frameborder="0" sandbox="allow-scripts allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock">
+          </iframe>
+          
+          <div class="iframeFailed" style="display: none">
+                <p class="message">Iframe embedding is not supported!</p>
+                <a href="" class="newTabLink loadingMore">Open link in new tab</a>
+          </div>
 
       </main>
 

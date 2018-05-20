@@ -49,3 +49,76 @@ body {
     transition: margin 0.15s ease-in-out;
     position: relative;
 }
+
+.detailBtns {
+    display: table;    
+    height: 60px;
+    width: 300px;
+    background: inherit;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background-color: #fff;
+}
+.closeIframe {
+    margin: 12px 0;
+    display: table-cell;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0,0,0,.76);
+    text-decoration: none;
+    border: 1px solid;
+    padding: 5px 16px;
+    border-radius: 0;
+    
+    float: right;
+    text-align: right;
+    text-decoration:line-through;
+}
+.closeIframe:hover {
+    text-decoration:line-through;
+}
+
+
+.backToHome:before {
+    content: "\2190";
+    margin-left: 0px;
+    margin-right: 10px;
+}
+.backToHome:hover:before {
+    margin-left: -10px;
+    margin-right: 20px;
+}
+.backToHome {
+    margin: 16px 0 10px 20px;
+    display: table-cell;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.76);
+    text-decoration: none;
+    padding: 5px 10px;
+    letter-spacing: -1px;
+    float: left;
+}
+
+ul.picks li.detail {
+    width: 300px !important;
+    float: none !important;
+    margin-left: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+.iframeFailed {
+    width: 100%;
+    margin: auto 0;
+}
+.iframeFailed p.message {
+    padding: 0;
+    margin: 0;
+}
+.iframeFailed .newTabLink {
+    padding: 0;
+    margin: 0;
+}
