@@ -7,7 +7,7 @@ export class UserPostsService {
 
   private host = window.location.hostname;
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private usersURL = 'https://www.bestuxdesign.com/add_posts';
+    private usersURL = 'https://www.buxd.io/add_posts';
 
 constructor(private http: HttpClient) { }
 
@@ -24,7 +24,7 @@ add(user: Posts): Promise<Posts>{
 }
 
 subscribe(email: string){
-  return this.http.post('https://www.bestuxdesign.com/add_subscribe',{ email: email }, {headers: this.headers})
+  return this.http.post('https://www.buxd.io/add_subscribe',{ email: email }, {headers: this.headers})
     .toPromise()
     .then(response => response)
     .catch(this.handleError)

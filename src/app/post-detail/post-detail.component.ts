@@ -36,7 +36,7 @@ hasParamId:boolean;
     this.getPostById(paramId);
  }else
  {
-     this.selectedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.bestuxdesign.com/");
+     this.selectedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.buxd.io/");
  }
   }
 
