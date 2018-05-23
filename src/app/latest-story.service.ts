@@ -11,7 +11,7 @@ export class LatestStoryService {
     getScreenShots( page: number ): Observable<any[]> {
         return forkJoin( [
 
-            this._http.get<any[]>( 'https://www.bestuxdesign.com/api/design/page/' + page )
+            this._http.get<any[]>( 'https://www.buxd.io/api/design/page/' + page )
 
         ] );
     }
