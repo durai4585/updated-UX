@@ -7,7 +7,7 @@
                         <a class="closeIframe"  [href]='iFrameURL()'>iFrame</a>
                     </div>
             		<ul class="picks">
-                        
+
                         <li class="gridItem detail" *ngFor="let post of posts">
             				<input type="hidden" name="_id" value="{{post._id}}">
             				<a  target="_blank" (click)="viewcount($event, post)">
@@ -44,7 +44,7 @@
 
           <iframe class="mainframe" [src]='iFrameURL()' frameborder="0" sandbox="allow-scripts allow-same-origin allow-scripts allow-popups allow-forms allow-pointer-lock">
           </iframe>
-          
+
           <div class="iframeFailed" style="display: none">
                 <p class="message">Iframe embedding is not supported!</p>
                 <a href="" class="newTabLink loadingMore">Open link in new tab</a>

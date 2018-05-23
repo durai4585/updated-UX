@@ -20,14 +20,15 @@ export class AdminComponent implements OnInit {
     showDialog = false;
     userAddForm: FormGroup;
     upost = new Posts();
+    iFrameURL = 'https://www.bestuxdesign.com/detail/';
 
   constructor(private adminService: AdminService,
     private router: Router, private formBuilder: FormBuilder) {
 
       let currentUser = JSON.parse(localStorage.getItem('currentUser'));
       if(!currentUser){
-      this.router.navigate(['/login']);
-    }
+       this.router.navigate(['/login']);
+      }
         this.buildForm();
     }
 
@@ -124,6 +125,7 @@ onFileChange(event) {
                   "website": element.website,
                   "status": element.status,
                   "postedDate": element.postedDate,
+                  "viewcount": element.viewcount,
                   "isIframe": element.isIframe
                   });
               }
@@ -140,6 +142,7 @@ onFileChange(event) {
                     "website": element.website,
                     "status": element.status,
                     "postedDate": element.postedDate,
+                    "viewcount": element.viewcount,
                     "isIframe": element.isIframe
                   });
               }
@@ -156,6 +159,7 @@ onFileChange(event) {
                     "website": element.website,
                     "status": element.status,
                     "postedDate": element.postedDate,
+                    "viewcount": element.viewcount,
                     "isIframe": element.isIframe
                   });
               }

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import { Meta, Title } from '@angular/platform-browser';
 import {Posts} from '../posts';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-post-detail',
@@ -14,12 +15,10 @@ export class PostDetailComponent implements OnInit {
   posts = [];
   pageNumber = 1;
   selectedPostUrl: SafeResourceUrl;
-  selectedPostTitle:string;
-  selectedPostMetaTitle:string;
   postUrl:string;
-hasParamId:boolean;
+  hasParamId:boolean;
 
-  constructor(private handPickedService: HandPickedService,private sanitizer: DomSanitizer, private route: ActivatedRoute, private router: Router, private title: Title, private meta: Meta) {
+  constructor(private _location: Location, private handPickedService: HandPickedService,private sanitizer: DomSanitizer, private route: ActivatedRoute, private router: Router, private title: Title, private meta: Meta) {
 
     }
 
@@ -52,14 +51,10 @@ hasParamId:boolean;
         results[0].forEach(element => {
 
     this.selectedPostUrl=  this.sanitizer.bypassSecurityTrustResourceUrl(element.url);
-      this.selectedPostTitle=element.title;
-      this.selectedPostMetaTitle=element.metatitle;
-      this.title.setTitle( this.selectedPostTitle);
+    this.updateMetaData(element);
     });
     });
-
-
-      }
+  }
 
   getData() {
       this.handPickedService.getScreenShots(this.pageNumber).subscribe(results => {
@@ -84,9 +79,9 @@ hasParamId:boolean;
       }
 
       viewcount(event, post) {
-        console.log(post);
          this.selectedPostUrl =   this.sanitizer.bypassSecurityTrustResourceUrl(post.url);
         this.iFrameURL();
+        this.updateMetaData(post);
         this.handPickedService.add_viewcount(post._id)
           .then(response => {
             //console.log(response);
@@ -96,11 +91,26 @@ hasParamId:boolean;
    return this.selectedPostUrl;
  }
       likecount(event, post) {
-        //console.log(post);
         this.handPickedService.add_likecount(post._id)
           .then(response => {
-            //console.log(response);
           })
+      }
+
+      updateMetaData(element){
+        this._location.replaceState('/detail/'+element._id);
+        this.title.setTitle( element.title);
+
+         //<!-- Schema.org markup for Google+ -->
+         this.meta.updateTag({ itempropitemprop: 'name', content: element.title });
+         this.meta.updateTag({ itemprop: 'image', content: element.image });
+          // <!-- Twitter Card data -->
+        this.meta.updateTag({ name: 'twitter:title', content: element.title });
+        this.meta.updateTag({ name: 'twitter:image', content: element.image });
+        // Open Graph data
+          this.meta.updateTag({ property: 'og:title', content: element.title });
+          this.meta.updateTag({ property: 'og:type', content: 'article' });
+          this.meta.updateTag({ property: 'og:url', content: 'https://www.bestuxdesign.com/detail/'+element._id });
+          this.meta.updateTag({ property: 'og:image', content: element.image });
       }
 
 }

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <main>
     <div class="home-content">
             <div class="JoinToday">
@@ -11,12 +12,12 @@
                     <input formControlName="email" type="text" name="email" style="width: 300px;" placeholder="Your email" value="{{user.email}}" id="submit-field"> <br />
                     <input formControlName="url" type="text" name="url" style="width: 640px;" placeholder="Your URL" value="{{user.url}}" id="submit-field" url> <br />
 
-	
+
 				<button class="submitBtn  btn-success"	[disabled]="!userAddForm.valid"	>Submit URL</button>
 				<div *ngIf="!userAddForm.valid" class="infoMsg">
                     Please validate your input.
                 </div>
-				
+
                 </form>
             </div>
     </div>
