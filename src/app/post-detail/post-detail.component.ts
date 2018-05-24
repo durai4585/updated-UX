@@ -59,7 +59,7 @@ export class PostDetailComponent implements OnInit {
   getData() {
       this.handPickedService.getScreenShots(this.pageNumber).subscribe(results => {
           let list = [];
-          results[0].forEach(element => {
+          results[0].filter((post) => post.isIframe == true).forEach(element => {
               //console.log("element.url : "+ element.url);
               list.push({
                   "_id": element._id,
