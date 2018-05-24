@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
     showDialog = false;
     userAddForm: FormGroup;
     upost = new Posts();
-    iFrameURL = 'https://www.bestuxdesign.com/detail/';
+    iFrameURL = 'https://www.buxd.io/detail/';
 
   constructor(private adminService: AdminService,
     private router: Router, private formBuilder: FormBuilder) {
