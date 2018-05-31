@@ -42,7 +42,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     PostDetailComponent
   ],
   imports: [
-    BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
+    BrowserModule.withServerTransition({ appId: 'serverApp' }), InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
   ],
   providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService,AuthenticationService ],
   bootstrap: [AppComponent]
