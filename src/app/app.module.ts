@@ -18,6 +18,7 @@ import { UserPostsService } from './user-posts.service';
 import { AdminService } from './admin.service';
 import { UserService } from './user.service';
 import { AuthenticationService } from './authentication.service';
+import { DribbblePostService } from './dribbble-post.service';
 
 import { HomeComponent } from './home/home.component';
 import { UserPostsComponent } from './user-posts/user-posts.component';
@@ -26,6 +27,7 @@ import { AdminComponent } from './admin/admin.component';
 import { UpdatePostsComponent } from './update-posts/update-posts.component';
 import { FooterComponent } from './footer/footer.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
+import { DribbblePostComponent } from './dribbble-post/dribbble-post.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,13 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
     AdminComponent,
     UpdatePostsComponent,
     FooterComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    DribbblePostComponent
   ],
   imports: [
     BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
   ],
-  providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService,AuthenticationService ],
+  providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService,AuthenticationService,DribbblePostService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

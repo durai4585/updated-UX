@@ -1,0 +1,31 @@
+<div class="feedHeader">
+	<div class="dayWise">
+		<a href="" class="sectionHeader">
+			<h2 class="borderYellow">Dribbble Shots</h2> <span>Today's Shots</span>
+		</a>
+	</div>
+</div>
+
+<div class="scrollableFeed">
+<section id="feed">
+    <ul class="AllFeed" infinite-scroll [infiniteScrollDistance]="2"
+		[infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScrollDown()">
+        <li class="gridItem" *ngFor="let post of posts">
+            <a href ="{{post.url}}?referrer=buxd.io" target="_blank">
+                <div class="postPhoto imgLoaded">
+					<img class="img-responsive" src={{post.image}} alt>
+				</div>
+				<div class="postInfo">
+					<h3>{{post.title}}</h3>
+					<div class="postMeta">
+						<span title="" class="source dribbble">{{post.source}}</span>
+						<div class="stats">
+						</div>
+					</div>
+				</div>
+            </a>
+        </li>
+    </ul>
+    <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More <span>Latest Shots</span></div></div>
+ </section>
+</div>
