@@ -44,25 +44,28 @@ export class DribbblePostComponent implements OnInit {
         this.dribbblePostService.getScreenShots( this.pageNumber ).subscribe( results => {
             let list = [];
 
-            // console.log("RSS :: "+results[0]);
-
+             //console.log("USER-Post-Latest :: "+results);
+             
+             var myJsonString = JSON.stringify(results);
+             console.log("myJsonString1 :: "+myJsonString);
+         
             let temp = [];
 
             //console.log("Feed :"+ results[0] );
 
-            temp = JSON.parse( results[0] );
-
+            temp = JSON.parse( myJsonString);
+            //console.log( "Temp :: "+temp );
             temp.forEach( element => {
-
-                if ( typeof element.image != 'undefined' && element.image ) {
-                    //console.log( element );
+                console.log("check.."+ element );
+                //if ( typeof element.image != 'undefined' ) {
+                    console.log("test1 "+ element.title );
                     list.push( {
                         "title": element.title,
                         "url": element.link,
                         "source": element.host,
                         "image": element.image
                     } );
-                }
+               // }
             } );
 
             list.forEach( element => {

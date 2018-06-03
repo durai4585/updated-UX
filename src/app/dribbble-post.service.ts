@@ -8,11 +8,7 @@ import { forkJoin } from "rxjs/observable/forkJoin";
 export class DribbblePostService {
     constructor( private _http: HttpClient ) { }
 
-    getScreenShots( page: number ): Observable<any[]> {
-        return forkJoin( [
-
-            this._http.get<any[]>( 'https://www.buxd.io/shots/dribbble/page/' + page )
-
-        ] );
-    }
+    getScreenShots(page: number): Observable<any[]> {
+        return this._http.get<any[]>('https://www.buxd.io/user/shots/page/'+ page);
+      }
 }
