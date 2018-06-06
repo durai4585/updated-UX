@@ -1,12 +1,29 @@
 <div class="feedHeader">
 	<div class="dayWise">
 		<a href="" class="sectionHeader">
-			<h2 class="borderYellow">Dribbble Shots</h2> <span>Today's Shots</span>
+			<h2 class="borderYellow">Add your story</h2> <span>Today's Shots</span>
 		</a>
 	</div>
+	 <div >
+             <!-- <!-- <h1 class="h1">Drop your Dribbble or Behance story!!</h1>
+             -->
+				<form [formGroup]="userAddForm"	(ngSubmit)="add()" accept-charset="utf-8" id="submit-blog" class="submitForm"	novalidate>
+					 <input formControlName="url" type="text" name="url" style="width: 640px;" placeholder="Dribbble or Behance URL's only.." value="{{user.url}}" id="submit-field" url> 
+				<button class="submitBtn  btn-success"	>Submit URL</button>
+		<div class="noSpam" *ngIf="subscribed=='exists'">Opps! This URL already exists</div>
+        <div class="noSpam" *ngIf="subscribed=='added'" >You're so in! Thank you for submitting</div>
+         <div class="noSpam" *ngIf="subscribed=='invalid'" >Invalid URL</div>
+       
+                </form>
+            </div>
+	
+	<main>
+    
+</main>
 </div>
 
 <div class="scrollableFeed">
+
 <section id="feed">
     <ul class="AllFeed" infinite-scroll [infiniteScrollDistance]="2"
 		[infiniteScrollThrottle]="300" [scrollWindow]="false" (scrolled)="onScrollDown()">

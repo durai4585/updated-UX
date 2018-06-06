@@ -26,8 +26,8 @@ export class HandPickedComponent implements OnInit {
       this.handPickedService.getScreenShots(this.pageNumber).subscribe(results => {
           let list = [];
           results[0].forEach(element => {
-              console.log("element : "+ element);
-              console.log("element.isIframe : "+ element.isIframe);
+              //console.log("element : "+ element);
+              //console.log("element.isIframe : "+ element.isIframe);
               let url = element.url
             if(element.isIframe) {url = "https://www.buxd.io/detail/"+element._id}
               list.push({

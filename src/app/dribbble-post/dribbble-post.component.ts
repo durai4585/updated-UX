@@ -7,65 +7,101 @@ import { forkJoin } from "rxjs/observable/forkJoin";
 import { DribbblePostService } from "../dribbble-post.service";
 import { parseString } from 'xml2js';
 
+import { Posts } from '../posts';
+import 'rxjs/add/operator/switchMap';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from "@angular/common";
 
-@Component({
-  selector: 'app-dribbble-post',
-  templateUrl: './dribbble-post.component.html',
-  styleUrls: ['./dribbble-post.component.css']
-})
+@Component( {
+    selector: 'app-dribbble-post',
+    templateUrl: './dribbble-post.component.html',
+    styleUrls: ['./dribbble-post.component.css']
+} )
 export class DribbblePostComponent implements OnInit {
 
+    userAddForm: FormGroup;
+    user = new Posts();
     posts = [];
     pageNumber = 1;
-    constructor( private http: HttpClient, private dribbblePostService: DribbblePostService ) { }
-
+    subscribed = '';
+    
+    constructor( private http: HttpClient, private dribbblePostService: DribbblePostService,
+        private router: Router,
+        private location: Location,
+        private formBuilder: FormBuilder ) {
+        this.buildForm();
+    };
+    
     ngOnInit() {
         this.getData();
     }
+
     onScrollDown() {
-       
+
         this.pageNumber += 1;
         this.getData();
     }
 
 
-    predicateBy( prop ) {
-        return function( a, b ) {
-            if ( a[prop] > b[prop] ) {
-                return 1;
-            } else if ( a[prop] < b[prop] ) {
-                return -1;
-            }
-            return 0;
-        }
+    buildForm(): void {
+        this.userAddForm = this.formBuilder.group( {
+            url: ['', Validators.required]
+        } );
     }
+    add(): void {
+        let user = this.userAddForm.value as Posts;
+        user.postedDate = new Date();
+        user.isActive = 'Y';
+        console.log( user );
+        
+        console.log("user.url : "+ user.url);
+        if(user.url == null || user.url =='' || user.url =='undefined'){
+            console.log("invalid....");
+            this.subscribed = 'invalid';
+            this.router.navigate( ['/'] );
+        }else{
+        this.dribbblePostService.add( user )
+            .then( response => {
+                 console.log(response);
+                //alert( "Thank you! We'll be in touch shortly." )
+                if ( response.status == 'exists' ) { this.subscribed = 'exists' }
+                else { this.subscribed = 'added' }
+                this.router.navigate( ['/'] );
+            } )
+        }
+            
+    }
+
+
+
 
     getData() {
         this.dribbblePostService.getScreenShots( this.pageNumber ).subscribe( results => {
             let list = [];
 
-             //console.log("USER-Post-Latest :: "+results);
-             
-             var myJsonString = JSON.stringify(results);
-             console.log("myJsonString1 :: "+myJsonString);
-         
+            //console.log("USER-Post-Latest :: "+results);
+            //console.log("Feed :"+ results[0] );
+            //var myJsonString = JSON.stringify( results );
+            //console.log( "myJsonString1 :: " + myJsonString );
+
             let temp = [];
 
-            //console.log("Feed :"+ results[0] );
+            
 
-            temp = JSON.parse( myJsonString);
+            //temp = JSON.parse( myJsonString );
             //console.log( "Temp :: "+temp );
-            temp.forEach( element => {
-                console.log("check.."+ element );
-                //if ( typeof element.image != 'undefined' ) {
-                    console.log("test1 "+ element.title );
-                    list.push( {
-                        "title": element.title,
-                        "url": element.link,
-                        "source": element.host,
-                        "image": element.image
-                    } );
-               // }
+            results.forEach( element => {
+                console.log( "check.." + element );
+                var parseTemp = JSON.parse( element );
+               
+                list.push( {
+                    "title": parseTemp.title,
+                    "url": parseTemp.link,
+                    "source": parseTemp.host,
+                    "image": parseTemp.image
+                } );
+                // }
             } );
 
             list.forEach( element => {
