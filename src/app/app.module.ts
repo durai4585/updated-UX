@@ -29,6 +29,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { DribbblePostComponent } from './dribbble-post/dribbble-post.component';
 
+export const APP_ID = 'my-app';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +47,7 @@ import { DribbblePostComponent } from './dribbble-post/dribbble-post.component';
     DribbblePostComponent
   ],
   imports: [
-    BrowserModule, InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
+      BrowserModule.withServerTransition({ appId: APP_ID }), InfiniteScrollModule , FormsModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule, AppRoutingModule
   ],
   providers: [LatestStoryService,HandPickedService,UserPostsService,AdminService,UserService,AuthenticationService,DribbblePostService ],
   bootstrap: [AppComponent]
