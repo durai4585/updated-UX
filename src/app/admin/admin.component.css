@@ -23,6 +23,12 @@
     width: auto;
 
 }
+.UrlDetails-subscribers {
+    display: table-cell;
+    padding-left: 0px;
+    width: auto;
+
+}
 .grid:after {
     content: " ";
     display: table;
@@ -405,4 +411,42 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;
+}
+
+
+
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    text-decoration: underline;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #52ffdd;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    border-top: none;
 }

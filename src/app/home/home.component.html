@@ -11,25 +11,27 @@
 
 <div class="home-content">
     <div class="JoinToday">
-      <h1 class="h1">Discover tomorrow's design - Get started today!</h1>
-      <h3 class="h3">Join our email digest is a short and sweet bundle of the inspiring design, UI, UX and <br />interactive news from around the web. It's simply best!</h3>
+      <h1 class="h1"><a  class="bannerHome" routerLink="/"><span>BUXD</span></a> is the best community where you'll find creative works and resources.</h1>
+      
       <form action="#" method="post" accept-charset="utf-8"
         id="subscribe-blog" class="subscrbeForm" (ngSubmit)="f.form.valid && subscribe()" #f="ngForm" novalidate>
+        <h3 class="h3">Be inspired - updating frequently!</h3>
         <input type="text" name="email"
-          placeholder="Enter your email address in here" value="" [(ngModel)]="model.email" #email="ngModel"
+          placeholder="@ Your email address in here" value="" [(ngModel)]="model.email" #email="ngModel"
           id="subscribe-field"> <input type="submit"
-          value="Join Us Today">
+          value="Join Us"><span></span>
       </form>
       <div class="noSpam" *ngIf="f.submitted && email.errors?.email;else other_content">Email is not valid</div>
-      <ng-template class="noSpam" #other_content>No charge. No spam. Unsubscribe at any time. Promise!</ng-template>
+      <ng-template class="noSpam" #other_content></ng-template>
         <div class="noSpam" *ngIf="subscribed=='exists'">Opps! This email already exists</div>
         <div class="noSpam" *ngIf="subscribed=='added'" >You're so in! Thank you for joining our newsletter</div>
         <div class="socialBtns">
-        <div class="fb-like" data-href="https://www.facebook.com/bestUXDesign/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
-        <a href="https://twitter.com/BestUXDesign?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-dnt="true" data-show-count="false">Follow @BestUXDesign</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a  class="menu" href="mailto:hello@buxd.io?subject=Hello%20You"><img class="img-responsive" src="assets/images/helloIcon.png" alt="Say Hello to BestUXDesign"></a>
+            <a  class="menu" href="https://www.facebook.com/bestUXDesign" target="_blank"><img class="img-responsive" src="assets/images/facebookIcon.png" alt="BestUXDesign Facebook"></a>
+            <a  class="menu" href="https://www.facebook.com/groups/bestUXDesigners" target="_blank"><img class="img-responsive" src="assets/images/fbGroupIcon.png" alt="BestUXDesign Facebook Group"></a>
+            <a  class="menu" href="https://twitter.com/BestUXDesign" target="_blank"><img class="img-responsive" src="assets/images/twitterIcon.png" alt="#BestUXDesign Twitter"></a>
         </div>
-    </div>
-    <app-dribbble-post></app-dribbble-post>
+   <!--  <app-dribbble-post></app-dribbble-post> -->
     <app-hand-picked></app-hand-picked>
     <app-latest-story></app-latest-story>
     <app-footer></app-footer>

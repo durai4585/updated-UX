@@ -8,11 +8,11 @@ import {Posts} from './posts';
 export class DribbblePostService {
     private host = window.location.hostname;
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private usersURL = 'https://www.buxd.io/user/shots/add';
+    private usersURL = 'https://www.buxd.io/add-ur-story/add';
     constructor( private _http: HttpClient ) { }
     
     getScreenShots(page: number): Observable<any[]> {
-        return this._http.get<any[]>('https://www.buxd.io/user/shots/page/'+ page);
+        return this._http.get<any[]>('https://www.buxd.io/add-ur-story/page/'+ page);
       }
     
     add(user: Posts): Promise<Posts>{

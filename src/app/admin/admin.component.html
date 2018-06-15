@@ -3,10 +3,107 @@
 <div class="home-content">
 	<div class="JoinToday">
 		<h1 class="h1">Hey Admin, You have URLs to take action and post.</h1>
-
-
 	</div>
-	<div class="allfeed">
+	
+    
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'Posts')" id="defaultOpen">Posts (67)</button>
+      <button class="tablinks" onclick="openTab(event, 'Subscribers')">Subscribers (23)</button>
+    </div>
+
+    <div id="Subscribers" class="tabcontent">
+		<div class="feedHeader">
+			<div class="dayWise">
+				<a href="" class="sectionHeader">
+					<h2 class="borderYellow">Today</h2> <span>{{todayDate|date:
+						'dd MMMM yyyy'}}</span>
+				</a>
+			</div>
+		</div>
+
+		<section id="admin">
+			<ul class="list">
+				<li class="item" *ngFor="let post of todayposts; let i = index">
+					<div class="grid">
+						<div class="UrlDetails">
+							<div class="row tableCell">
+								<div class="company">
+									<a href="" class="preventLink"> email id </a>
+									<a href="" class="companyLink"> <span>Submitted by</span>
+										<h4>user name</h4>
+									</a>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<div class="feedHeader">
+			<div class="dayWise">
+				<a href="" class="sectionHeader">
+					<h2 class="borderYellow">Yesterday</h2> <span>{{yesterdayDate|date:
+						'dd MMMM yyyy'}}</span>
+				</a>
+			</div>
+		</div>
+
+		<section id="admin">
+			<ul class="list">
+				<li class="item"
+					*ngFor="let post of yesterdayposts  ; let i = index">
+					<div class="grid">
+						<div class="UrlDetails">
+							<div class="row tableCell">
+								<div class="company">
+									<a href="" class="preventLink"> email id </a>
+									<a href="" class="companyLink"> <span>Submitted by</span>
+										<h4>user name</h4>
+									</a>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<div class="feedHeader">
+			<div class="dayWise">
+				<a href="" class="sectionHeader">
+					<h2 class="borderYellow">Older</h2> <span></span>
+				</a>
+			</div>
+		</div>
+
+
+		<section id="admin">
+			<ul class="list">
+				<li class="item" *ngFor="let post of olderdayposts; let i = index">
+					<div class="grid">
+						<div class="UrlDetails">
+							<div class="row tableCell">
+								<div class="company">
+									<a href="" class="preventLink"> email id </a>
+									<a href="" class="companyLink"> <span>Submitted by</span>
+										<h4>user name</h4>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</section>
+	</div>
+    
+    
+    <div id="Posts" class="tabcontent">
 		<div class="feedHeader">
 			<div class="dayWise">
 				<a href="" class="sectionHeader">
@@ -31,7 +128,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="UrlDetails">
+						<div class="UrlDetails-subscribers">
 							<div class="row tableCell">
 								<div class="company">
 									<a href="" class="preventLink"> {{post.url}} </a>
@@ -93,7 +190,7 @@
 								</div>
 							</a>
 						</div>
-						<div class="UrlDetails">
+						<div class="UrlDetails-subscribers">
 							<div class="row tableCell">
 								<div class="company">
 									<a href="" class="preventLink"> {{post.url}} </a>
@@ -156,7 +253,7 @@
 
 							</a>
 						</div>
-						<div class="UrlDetails">
+						<div class="UrlDetails-subscribers">
 							<div class="row tableCell">
 								<div class="company">
 									<a href="" class="preventLink"> {{post.url}} </a>
@@ -198,6 +295,7 @@
 			</ul>
 		</section>
 	</div>
+    
 
 </div>
 </main>

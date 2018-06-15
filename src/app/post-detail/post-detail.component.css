@@ -62,22 +62,24 @@ body {
     background-color: #fff;
 }
 .closeIframe {
-    margin: 12px 0;
+    margin: 0px 0px;
     display: table-cell;
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(0,0,0,.76);
-    text-decoration: none;
-    border: 1px solid;
-    padding: 5px 16px;
-    border-radius: 0;
-    
+    font-size: 18px;
     float: right;
-    text-align: right;
-    text-decoration:line-through;
+    text-decoration: none;
+    
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #B5B7B8;
+    transition: color .35s ease-in-out;
+    
+    text-align: center;
+    
 }
+
 .closeIframe:hover {
-    text-decoration:line-through;
+    background-color: rgba(0,0,0,.05);
 }
 
 
@@ -91,7 +93,7 @@ body {
     margin-right: 20px;
 }
 .backToHome {
-    margin: 16px 0 10px 20px;
+    margin: 16px 0 10px 7px;
     display: table-cell;
     font-size: 18px;
     font-weight: 700;

@@ -21,7 +21,7 @@ header #logo svg {
             -ms-transition: all 0.3s;
             -o-transition: all 0.3s;
             transition: all 0.3s;
-            width: 80px;
+            width: 70px;
 }
 
 .pull-left {
@@ -64,26 +64,62 @@ header .nav-icon {
     vertical-align: top;
 }
 header a.signin {
-    margin: 16px 0;
+    margin: 16px 0 10px 20px;
     display: inline-block;
-    margin-left: 20px;
 
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 700;
     text-transform: uppercase;
-    color: rgba(0,0,0,.76);
+    color: #3652d3;
     text-decoration: none;
 
-    border: 1px solid;
-    padding: 5px 16px;
-    border-radius: 15px;
-    /*width: 0;
+    
+    padding: 4px 0px 10px 5px;
+    border-bottom: 0px solid #52ffdd;
+    /*border-radius: 15px;
+    width: 0;
     overflow: hidden;*/
+    position: relative;
 }
 
 header a.signin:hover {
-    color: #ffffff;
-    background-color: rgba(0,0,0,.76);
+    text-decoration: none;
+    
+}
+/* header a.signin:before {
+    content: "\2192";
+    margin-left: -35px;
+    margin-right: 10px;
+    
+} */
+header a.signin span:before {
+    display: block;
+    width: 70px;
+    height: 40px;
+    position: absolute;
+    content: '';
+    background-color: #52ffdd;
+    z-index: -1;
+    left: 30px;
+    top: -9px;
+    transition: all .3s ease;
+}
+header a.signin:hover span:before {
+    text-decoration: none;
+    left: -15px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+header a.signin span {
+    display: inline-block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    position: relative;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
 }
 
 
@@ -129,12 +165,12 @@ header a.menu {
     color: rgba(0,0,0,.76);
     text-decoration: none;
 
-    padding: 5px 10px;
+    padding: 5px 20px 5px 0px;
     letter-spacing: -1px;
 }
 header a.menu:hover {
 
-    color: rgba(0,0,0,1);
+    color: #222222;
 
 }
 
@@ -205,19 +241,10 @@ header .contactUs a.menu:hover {
     opacity: 1;
 }
 header.showHeader a.home {
-    display: none;
+    /* display: none; */
                 
 }
 
 a.admin {
     color: rgb(255, 63, 69) !important;
-}
-
-
-
-
-.socialBtns {
-    display: block;
-    margin: 20px;
-    clear: both;
 }

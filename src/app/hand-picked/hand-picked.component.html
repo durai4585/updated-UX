@@ -6,46 +6,38 @@
 	</div>
 </div>
 
-<div class="allfeed">
-	<section id="feed" >
-		<ul class="picks">
-			  <!-- <li class="gridItem promoted">
-                <a href="#">
-                    <div class="postPhoto imgLoaded">
-                      <img class="img-responsive" src="" alt>
-                    </div>
+<div>
+    
+                    <section id="handPicks">
+                        <ul class="home">
+                            
+                            <li class="gridItem" *ngFor="let post of posts">
+                                <input type="hidden" name="_id" value="{{post._id}}">
+                                <div class="tile">
+                                    <a href ="{{post.url}}?referrer=buxd.io" target="_blank" (click)="viewcount($event, post)"  class="postLink">
+                                    <div class="postPhoto">
+                                    <img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}" style="opacity: 1;">
+                                          <div class="share"></div>
+                                          <span class="badge"></span>
+                                    </div>
+                                    </a>
+                                    <div class="postMeta">
 
-                    <div class="postInfo">
-                      <h3></h3>
-                      <div class="postMeta">
-                        <span _ngcontent-c3="" class="promoText" title=""></span>
-                      </div>
-                    </div>
-                </a>
-            </li> -->
-
-            <li class="gridItem" *ngFor="let post of posts">
-							<input type="hidden" name="_id" value="{{post._id}}">
-				<a href ="{{post.url}}?referrer=buxd.io" target="_blank" (click)="viewcount($event, post)">
-				    <div class="postPhoto imgLoaded">
-				        <img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}">
-				    </div>
-
-				    <div class="postInfo">
-				           <!--  <div class="heart"></div> -->
-				            <h3>{{post.title}}</h3>
-
-				            <div class="postMeta">
-								<span title="" class="source dribbble">{{post.source}}</span>
-								<div class="stats">
-								    <span class="views" title="Most viewed">{{post.viewcount}}</span>
-                                   <!--  <span class="likes" title="Most liked">45</span> -->
-								</div>
-				            </div>
-				    </div>
-				</a>
-            </li>
-		</ul>
-        <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More <span>Handpicked Stories</span></div></div>
-	</section>
+                                        <div class="postInfo">
+                                          <h3>{{post.title}}</h3>
+                                          <span title="" class="source">{{post.source}}</span>
+                                            <div class="stats pull-right-views">
+                                                <span class="views" title="Most viewed">{{post.viewcount}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>     
+                            
+                            
+                        </ul>
+                        <div class="loadingMore"  (click)="onScrollDown()"><div class="loadBtn">Load More <span>Handpicked Stories</span></div></div>
+                    </section>
+    
+    
 </div>

@@ -65,8 +65,19 @@ export class DribbblePostComponent implements OnInit {
             .then( response => {
                  console.log(response);
                 //alert( "Thank you! We'll be in touch shortly." )
-                if ( response.status == 'exists' ) { this.subscribed = 'exists' }
-                else { this.subscribed = 'added' }
+                if ( response.status == 'exists' ) {
+                    this.subscribed = 'exists' 
+                }else if( response.status.indexOf('OpenGraph') >= 0){
+                   // if("OpenGraph".(response.status)){
+                    this.subscribed = 'error' 
+                }else if(  response.status == 'invalidUrl'){
+           
+                    this.subscribed = 'invalidUrl' 
+                }
+                else { alert("You're so in! Thank you for submitting");// this.subscribed = 'added' 
+                this.ngOnInit();
+                }
+                
                 this.router.navigate( ['/'] );
             } )
         }

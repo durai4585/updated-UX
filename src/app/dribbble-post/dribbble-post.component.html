@@ -12,7 +12,8 @@
 				<button class="submitBtn  btn-success"	>Submit URL</button>
 		<div class="noSpam" *ngIf="subscribed=='exists'">Opps! This URL already exists</div>
         <div class="noSpam" *ngIf="subscribed=='added'" >You're so in! Thank you for submitting</div>
-         <div class="noSpam" *ngIf="subscribed=='invalid'" >Invalid URL</div>
+         <div class="noSpam" *ngIf="subscribed=='invalidUrl'" >Invalid URL. Please submit Dribbble or Behance only.</div>
+          <div class="noSpam" *ngIf="subscribed=='error'" >No OpenGraph Tags Found. Please try different URL or submit using <a href="http://www.buxd.io/userposts">HandPicked-Story</a></div>
        
                 </form>
             </div>
