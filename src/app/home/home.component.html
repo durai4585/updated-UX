@@ -11,15 +11,15 @@
 
 <div class="home-content">
     <div class="JoinToday">
-      <h1 class="h1"><a  class="bannerHome" routerLink="/"><span>BUXD</span></a> is the best community where you'll find creative works and resources.</h1>
+      <h1 class="h1"><a  class="bannerHome" routerLink="/"><span>BUXD</span></a> is the best community <br/>where you'll find creative works and resources.</h1>
       
       <form action="#" method="post" accept-charset="utf-8"
         id="subscribe-blog" class="subscrbeForm" (ngSubmit)="f.form.valid && subscribe()" #f="ngForm" novalidate>
-        <h3 class="h3">Be inspired - updating frequently!</h3>
+        <h3 class="h3">Be inspired, updating frequently &amp; only selected stories!</h3>
         <input type="text" name="email"
-          placeholder="@ Your email address in here" value="" [(ngModel)]="model.email" #email="ngModel"
+          placeholder="@ Enter your email address" value="" [(ngModel)]="model.email" #email="ngModel"
           id="subscribe-field"> <input type="submit"
-          value="Join Us"><span></span>
+          value="Subscribe"><span></span>
       </form>
       <div class="noSpam" *ngIf="f.submitted && email.errors?.email;else other_content">Email is not valid</div>
       <ng-template class="noSpam" #other_content></ng-template>

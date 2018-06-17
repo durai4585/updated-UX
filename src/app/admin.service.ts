@@ -13,24 +13,34 @@ constructor(private _http: HttpClient) { }
 
   getScreenShots(page: number): Observable<any[]> {
     return forkJoin([
-    this._http.get('https://www.buxd.io/posts')
+    //this._http.get('https://www.buxd.io/posts')
+     this._http.get('https://www.buxd.io/handpick/post/getbypage/'+ page)
     ]);
   }
 
   approvePost(posts: Posts): Promise<Posts>{
     //console.log(posts);
-    return this._http.put('https://www.buxd.io/approve_posts', posts, {headers: this.headers})
+    return this._http.put('https://www.buxd.io/handpick/post/approve', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)
       .catch(this.handleError)
   }
   
   deletePost(posts: Posts): Promise<Posts>{
-    return this._http.put('https://www.buxd.io/delete_posts', posts, {headers: this.headers})
+    return this._http.put('https://www.buxd.io/handpick/post/delete', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)
       .catch(this.handleError)
   }
+  
+  
+  getsubscribe(){
+      return this._http.get('https://www.buxd.io/subscribe/get', {headers: this.headers})
+        .toPromise()
+        .then(response => response)
+        .catch(this.handleError)
+    }
+
   
   /**
      * Handles error thrown during HTTP call

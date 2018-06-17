@@ -7,7 +7,7 @@ export class UserPostsService {
 
   private host = window.location.hostname;
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private usersURL = 'https://www.buxd.io/add_posts';
+    private usersURL = 'https://www.buxd.io/handpick/post/submit';
 
 constructor(private http: HttpClient) { }
 
@@ -24,11 +24,12 @@ add(user: Posts): Promise<Posts>{
 }
 
 subscribe(email: string){
-  return this.http.post('https://www.buxd.io/add_subscribe',{ email: email }, {headers: this.headers})
+  return this.http.post('https://www.buxd.io/subscribe/add',{ email: email }, {headers: this.headers})
     .toPromise()
     .then(response => response)
     .catch(this.handleError)
 }
+
 
 /**
    * Handles error thrown during HTTP call

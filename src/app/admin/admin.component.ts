@@ -21,6 +21,8 @@ export class AdminComponent implements OnInit {
     userAddForm: FormGroup;
     upost = new Posts();
     iFrameURL = 'https://www.buxd.io/detail/';
+    
+    subscribe = [];
 
   constructor(private adminService: AdminService,
     private router: Router, private formBuilder: FormBuilder) {
@@ -35,6 +37,25 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
       this.getData();
   }
+  onScrollDown() {
+
+      this.pageNumber += 1;
+      this.getData();
+  }
+  
+  
+  subscribes():void{
+      this.adminService.getsubscribe()
+      .then(response => {
+        console.log(response);
+        //this.router.navigate(['/home']);
+          this.subscribe.push({response});
+        this.showDialog = false;
+      })
+  }
+  
+  
+  
   buildForm(): void {
     this.userAddForm = this.formBuilder.group({
       image: [''],

@@ -1122,7 +1122,7 @@ form.subscrbeForm input[type="text"] {
     max-width: calc(100% - 90px);
     outline: none;
     font-size: 22px;
-    width: 270px;
+    width: 260px;
 
     position: relative;
     /* border-radius: 25px 0 0 25px; */
@@ -1131,7 +1131,7 @@ form.subscrbeForm input[type="text"] {
     border-left: 0px solid;
     border-top: 0px solid;
     
-    margin-right: 10px;
+    margin-right: 5px;
     
 }
 
@@ -1143,9 +1143,8 @@ form.subscrbeForm input[type="submit"] {
     padding: 0 !important;
     outline: none;
     border: 0;
-    text-transform: uppercase;
     font-size: 22px;
-    font-weight: 800;
+    font-weight: 700;
     cursor: pointer;
     border-radius: 0 25px 25px 0;
 
@@ -1180,8 +1179,24 @@ form.subscrbeForm .socialIcon {
     -moz-transition: .1s all ease-in-out;
     -o-transition: .1s all ease-in-out;
     transition: .1s all ease-in-out;
+    z-index: 1;
 }
 
+form.subscrbeForm span {
+    z-index: 0;
+    position: relative;
+}
+form.subscrbeForm span:after {
+    display: block;
+    content: "\039e";
+    color: #3651d3;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 2px;
+    left: -2px;
+    z-index: -1;
+}
 .JoinToday .noSpam {
     color: rgba(0,0,0,.5);
     margin-top: 5px;
@@ -1926,7 +1941,7 @@ main section#handPicks ul.picks li .postMeta .postInfo .source, main section#han
 }
 
 main section#handPicks ul.picks li .postPhoto, main section#handPicks ul.home li .postPhoto {
-    /* background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPk9IjIuNSIgcj0iMi41Ij48L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==);
+    /* background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP k9IjIuNSIgcj0iMi41Ij48L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==);
     background-repeat: no-repeat;
     background-position: center center; 
     background-size: 30px; */

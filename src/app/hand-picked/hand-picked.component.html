@@ -16,7 +16,7 @@
                                 <div class="tile">
                                     <a href ="{{post.url}}?referrer=buxd.io" target="_blank" (click)="viewcount($event, post)"  class="postLink">
                                     <div class="postPhoto">
-                                    <img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}" style="opacity: 1;">
+                                    <img class="img-responsive" alt="" *ngIf="(post.image)" src="{{post.image}}" style="opacity: 1;">
                                           <div class="share"></div>
                                           <span class="badge"></span>
                                     </div>
