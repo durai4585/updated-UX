@@ -37,11 +37,11 @@ import {Location} from "@angular/common";
       user.postedDate=new Date();
         user.isActive='Y';
         user.status='New';
-        //console.log(user);
+        console.log("user ---> "+user);
 
       this.userPostsService.add(user)
         .then(response => {
-         // console.log(response);
+          console.log("response :: "+response);
             alert("Thank you! We'll be in touch shortly.")
           this.router.navigate(['/']);
         })

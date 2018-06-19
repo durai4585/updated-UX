@@ -129,7 +129,7 @@ onFileChange(event) {
 
           results[0].forEach(element => {
              let postDate = new Date(element.postedDate);
-              //console.log(element);
+              console.log(element);
               //this.todayposts.date=todayDate.setHours(0,0,0,0);
 
             this.yesterdayDate =  new Date(this.yesterdayDate.setDate(this.todayDate.getDate() - 1));
