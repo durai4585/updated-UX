@@ -87,22 +87,40 @@ body {
     content: "\2190";
     margin-left: 0px;
     margin-right: 10px;
+    transition: all .3s ease;
 }
-.backToHome:hover:before {
-    margin-left: -10px;
-    margin-right: 20px;
+.backToHome:hover:after {
+    top: 10px;
+    transition: all .3s ease;
+    text-decoration: none;
+    left: 14px;
+    width: 40px;
+    border-radius: 20px
 }
 .backToHome {
-    margin: 16px 0 10px 7px;
+    margin: 12px 0 10px 7px;
     display: table-cell;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
     color: rgba(0,0,0,.76);
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 5px 20px;
     letter-spacing: -1px;
     float: left;
+}
+.backToHome:after {
+    display: block;
+    width: 60px;
+    height: 40px;
+    position: absolute;
+    content: '';
+    background-color: #52ffdd;
+    z-index: -1;
+    left: 70px;
+    top: 10px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
 }
 
 ul.picks li.detail {

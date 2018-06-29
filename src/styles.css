@@ -1282,13 +1282,72 @@ form.submitForm .socialIcon {
 }
 
 
-.browserImg {
+.JoinToday-submit .h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.JoinToday-submit .h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.JoinToday-submit span {
+    position: relative;
+    z-index: 0;
+}
+.JoinToday-submit span:before {
+    display: block;
+    position: absolute;
+    content: '';
+    background-color: #52ffdd;
+    z-index: -1;
+
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {
+    width: 60px;
+    height: 5px;
+    border-radius: 10px;
+    left: 30px;
+    top: -128px;
+    }
+    to {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    left: 8px;
+    top: -110px;
+    }
+}
+
+@keyframes mymove {
+    from {
+    width: 60px;
+    height: 5px;
+    border-radius: 10px;
+    left: 30px;
+    top: -128px;
+    }
+    to {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    left: 8px;
+    top: -110px;
+    }
+}
+
+.JoinToday-submit .browserImg {
     width: 100px;
     opacity: .5;
     margin-bottom: 50px;
 }
-
-
 
  .hoverable {
 
@@ -1521,7 +1580,7 @@ section#handPicks .loadingMore {
     bottom: 0px;
     /* background-color: white; */
     padding: 40px 0;
-    background: linear-gradient(0deg,rgb(255, 255, 255),rgba(0,0,0,0));
+    /* background: linear-gradient(0deg,rgb(255, 255, 255),rgba(0,0,0,0)); */
 }
 
 .loadBtn {
@@ -1941,7 +2000,7 @@ main section#handPicks ul.picks li .postMeta .postInfo .source, main section#han
 }
 
 main section#handPicks ul.picks li .postPhoto, main section#handPicks ul.home li .postPhoto {
-    /* background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP k9IjIuNSIgcj0iMi41Ij48L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==);
+    /* background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPk9IjIuNSIgcj0iMi41Ij48L2NpcmNsZT4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==);
     background-repeat: no-repeat;
     background-position: center center; 
     background-size: 30px; */

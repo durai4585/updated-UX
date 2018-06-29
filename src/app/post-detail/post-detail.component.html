@@ -12,7 +12,7 @@
             				<input type="hidden" name="_id" value="{{post._id}}">
             				<a  target="_blank" (click)="viewcount($event, post)">
             				    <div class="postPhoto imgLoaded">
-            				        <img class="img-responsive" alt="" *ngIf="(post.image)" src="data:image/png;base64,{{post.image.value}}">
+            				        <img class="img-responsive" alt="" *ngIf="(post.image)" src="{{post.image}}">
             				    </div>
 
             				    <div class="postInfo">
