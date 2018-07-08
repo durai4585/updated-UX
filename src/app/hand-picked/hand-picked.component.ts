@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HandPickedService } from '../hand-picked.service';
+import { HOST } from "../constant";
 
 @Component({
   selector: 'app-hand-picked',
@@ -29,7 +30,7 @@ export class HandPickedComponent implements OnInit {
               //console.log("element : "+ element);
               //console.log("element.isIframe : "+ element.isIframe);
               let url = element.url
-            if(element.isIframe) {url = "https://www.buxd.io/detail/"+element._id}
+            if(element.isIframe) {url = HOST+"/detail/"+element._id}
               list.push({
                   "_id": element._id,
                   "title": element.title,

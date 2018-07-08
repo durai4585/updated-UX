@@ -3,16 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { forkJoin } from "rxjs/observable/forkJoin";
 import {Posts} from './posts';
+import { HOST } from "./constant";
 
 @Injectable()
 export class DribbblePostService {
     private host = window.location.hostname;
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private usersURL = 'https://www.buxd.io/add-ur-story/add';
+    private usersURL = HOST+'/add-ur-story/add';
     constructor( private _http: HttpClient ) { }
     
     getScreenShots(page: number): Observable<any[]> {
-        return this._http.get<any[]>('https://www.buxd.io/add-ur-story/page/'+ page);
+        return this._http.get<any[]>(HOST+'/add-ur-story/page/'+ page);
       }
     
     add(user: Posts): Promise<Posts>{

@@ -3,6 +3,7 @@ import { AdminService } from '../admin.service';
 import {Posts} from '../posts';
 import {Router} from '@angular/router';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { HOST } from "../constant";
 
 @Component({
   selector: 'app-admin',
@@ -20,7 +21,7 @@ export class AdminComponent implements OnInit {
     showDialog = false;
     userAddForm: FormGroup;
     upost = new Posts();
-    iFrameURL = 'https://www.buxd.io/detail/';
+    iFrameURL = HOST+'/detail/';
     
     subscribe = [];
 

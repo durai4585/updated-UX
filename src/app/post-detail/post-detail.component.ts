@@ -5,6 +5,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser
 import { Meta, Title } from '@angular/platform-browser';
 import {Posts} from '../posts';
 import {Location} from '@angular/common';
+import { HOST } from "../constant";
 
 @Component({
   selector: 'app-post-detail',
@@ -35,7 +36,7 @@ export class PostDetailComponent implements OnInit {
     this.getPostById(paramId);
  }else
  {
-     this.selectedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.buxd.io/");
+     this.selectedPostUrl = this.sanitizer.bypassSecurityTrustResourceUrl(HOST+"/");
  }
   }
 
@@ -109,7 +110,7 @@ export class PostDetailComponent implements OnInit {
         // Open Graph data
           this.meta.updateTag({ property: 'og:title', content: element.title });
           this.meta.updateTag({ property: 'og:type', content: 'article' });
-          this.meta.updateTag({ property: 'og:url', content: 'https://www.bestuxdesign.com/detail/'+element._id });
+          this.meta.updateTag({ property: 'og:url', content: HOST+'/detail/'+element._id });
           this.meta.updateTag({ property: 'og:image', content: element.image });
       }
 

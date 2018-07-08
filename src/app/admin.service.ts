@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { forkJoin } from "rxjs/observable/forkJoin";
 import 'rxjs/add/operator/map';
 import {Posts} from './posts';
+import { HOST } from "./constant";
 
 @Injectable()
 export class AdminService {
@@ -13,21 +14,20 @@ constructor(private _http: HttpClient) { }
 
   getScreenShots(page: number): Observable<any[]> {
     return forkJoin([
-    //this._http.get('https://www.buxd.io/posts')
-     this._http.get('https://www.buxd.io/handpick/post/getbyAdminPage/'+ page)
+     this._http.get(HOST+'/handpick/post/getbyAdminPage/'+ page)
     ]);
   }
 
   approvePost(posts: Posts): Promise<Posts>{
     //console.log(posts);
-    return this._http.put('https://www.buxd.io/handpick/post/approve', posts, {headers: this.headers})
+    return this._http.put(HOST+'/handpick/post/approve', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)
       .catch(this.handleError)
   }
   
   deletePost(posts: Posts): Promise<Posts>{
-    return this._http.put('https://www.buxd.io/handpick/post/delete', posts, {headers: this.headers})
+    return this._http.put(HOST+'/handpick/post/delete', posts, {headers: this.headers})
       .toPromise()
       .then(response => response)
       .catch(this.handleError)
@@ -35,7 +35,7 @@ constructor(private _http: HttpClient) { }
   
   
   getsubscribe(){
-      return this._http.get('https://www.buxd.io/subscribe/get', {headers: this.headers})
+      return this._http.get(HOST+'/subscribe/get', {headers: this.headers})
         .toPromise()
         .then(response => response)
         .catch(this.handleError)
